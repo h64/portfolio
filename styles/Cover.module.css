@@ -1,0 +1,42 @@
+.greeting {
+  font-size: 2em;
+  color: purple;
+}
+
+.name {
+  font-size: 3.5em;
+  white-space: pre;
+}
+
+.subtitle {
+  font-size: 1.5em;
+}
+
+.cursor::after {
+  /* padding-left: 0.1em; */
+  font-weight: bold;
+  font-size: 1.2em;
+  content: "|";
+  animation: cursor-blink 1.5s step-end infinite;
+}
+
+@keyframes cursor-blink {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: black;
+  }
+}
+
+@media (min-width: 600px) {
+  .cover {
+    width: 50%;
+  }
+  .cursor::before {
+    /* https://css-tricks.com/injecting-line-break/ */
+    content: "\A>";
+    white-space: pre;
+  }
+}

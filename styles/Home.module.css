@@ -23,49 +23,11 @@
 /* Main Content */
 .main {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  /* padding: 0 2rem; */
-  min-height: 90vh;
+  min-height: 100vh;
 }
 
-/* Introduction */
-.greeting {
-  font-size: 2em;
-  color: purple;
-}
-
-.name {
-  font-size: 3.5em;
-}
-
-.subtitle {
-  font-size: 1.5em;
-}
-
-.subtitle::after {
-  padding-left: 0.1em;
-  font-weight: bold;
-  font-size: 1.2em;
-  content: "|";
-  /* https://css-tricks.com/injecting-line-break/ */
-  animation: cursor-blink 1.5s step-end infinite;
-}
-
-@keyframes cursor-blink {
-  from,
-  to {
-    color: transparent;
-  }
-  50% {
-    color: black;
-  }
-}
-
-@media (min-width: 600px) {
-  .subtitle::after {
-    content: "\A|";
-    white-space: pre;
-  }
+.main::after {
 }

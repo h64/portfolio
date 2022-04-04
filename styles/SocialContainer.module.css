@@ -1,0 +1,13 @@
+.social__container {
+  display: flex;
+  justify-content: space-around;
+  padding: 1em;
+}
+
+.social__image {
+  transition: all 0.1s ease-in-out;
+  padding: 0.5em;
+}
+.social__image:hover {
+  transform: scale(1.2);
+}
