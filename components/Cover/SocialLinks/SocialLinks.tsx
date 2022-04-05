@@ -25,6 +25,15 @@ const SocialLinks = ({ simulateCliTyping }: Cli) => {
       >
         <Image src="/linkedin.svg" alt="LinkedIn" width={36} height={36} />
       </a>
+      <a
+        href="mailto:henry@hong.dev"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles["social__image"]}
+        onMouseEnter={() => simulateCliTyping("mailto: henry@hong.dev")}
+      >
+        <Image src="/email.svg" alt="Email" width={36} height={36} />
+      </a>
     </div>
   );
 };
