@@ -1,18 +1,14 @@
 .cover {
   min-height: 100vh;
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.greeting {
-  margin: 2em;
+  padding-top: 5rem;
 }
 
-.greeting-wrapper {
-  display: flex;
-  /* flex-direction: column; */
+.greeting {
+  margin-bottom: 2rem;
 }
 
 .greeting > h2 {
@@ -21,9 +17,7 @@
 }
 
 .name {
-  /* width: 100%; */
-  font-size: 3em;
-  white-space: pre;
+  font-size: 3.5em;
 }
 
 .subtitle {
@@ -33,6 +27,7 @@
 .cursor {
   display: none;
 }
+
 .cursor::after {
   position: absolute;
   font-weight: bold;
@@ -49,11 +44,6 @@
   animation: cursor-blink 1.5s step-end infinite;
 }
 
-.profile-picture {
-  border-radius: 50%;
-  display: inline-block;
-}
-
 @keyframes cursor-blink {
   from,
   to {
@@ -65,21 +55,33 @@
 }
 
 @media (min-width: 600px) {
-  .greeting-wrapper {
-    width: 50%;
-  }
   .cover {
-    min-height: unset;
+    padding-top: 0;
   }
+
+  .greeting {
+    margin-bottom: 6rem;
+  }
+
+  .name {
+    font-size: 4em;
+  }
+
   .cursor {
     display: unset;
   }
+
   .cursor::before {
     /* https://css-tricks.com/injecting-line-break/ */
     content: "\A>";
     white-space: pre;
   }
+
   .mobile-cursor {
     display: none;
+  }
+
+  .subtitle {
+    position: absolute;
   }
 }

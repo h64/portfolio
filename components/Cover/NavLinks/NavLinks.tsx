@@ -5,7 +5,7 @@ import styles from "./NavLinks.module.css";
 const NavLinks = ({ simulateCliTyping }: Cli) => {
   return (
     <div className={styles.grid}>
-      <Link href={"/#"} passHref>
+      <Link href={"#about"} passHref>
         <div
           className={styles.card}
           onMouseEnter={() => simulateCliTyping("cd ~/About")}
@@ -14,7 +14,7 @@ const NavLinks = ({ simulateCliTyping }: Cli) => {
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
       </Link>
-      <Link href={"/#"} passHref>
+      <Link href={"#work"} passHref>
         <div
           className={styles.card}
           onMouseEnter={() => simulateCliTyping("cd ~/Work")}
@@ -23,7 +23,7 @@ const NavLinks = ({ simulateCliTyping }: Cli) => {
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
       </Link>
-      <Link href={"/#"} passHref>
+      <Link href={"#articles"} passHref>
         <div
           className={styles.card}
           onMouseEnter={() => simulateCliTyping("cd ~/Articles")}
@@ -32,7 +32,7 @@ const NavLinks = ({ simulateCliTyping }: Cli) => {
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
       </Link>
-      <Link href={"/#"} passHref>
+      <Link href={"#contact"} passHref>
         <div
           className={styles.card}
           onMouseEnter={() => simulateCliTyping("cd ~/Contact")}
