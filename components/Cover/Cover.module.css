@@ -1,0 +1,85 @@
+.cover {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.greeting {
+  margin: 2em;
+}
+
+.greeting-wrapper {
+  display: flex;
+  /* flex-direction: column; */
+}
+
+.greeting > h2 {
+  font-size: 2em;
+  color: purple;
+}
+
+.name {
+  /* width: 100%; */
+  font-size: 3em;
+  white-space: pre;
+}
+
+.subtitle {
+  font-size: 1.5em;
+}
+
+.cursor {
+  display: none;
+}
+.cursor::after {
+  position: absolute;
+  font-weight: bold;
+  font-size: 1.2em;
+  content: "|";
+  animation: cursor-blink 1.5s step-end infinite;
+}
+
+.mobile-cursor::after {
+  position: absolute;
+  font-weight: bold;
+  font-size: 1.2em;
+  content: "|";
+  animation: cursor-blink 1.5s step-end infinite;
+}
+
+.profile-picture {
+  border-radius: 50%;
+  display: inline-block;
+}
+
+@keyframes cursor-blink {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: black;
+  }
+}
+
+@media (min-width: 600px) {
+  .greeting-wrapper {
+    width: 50%;
+  }
+  .cover {
+    min-height: unset;
+  }
+  .cursor {
+    display: unset;
+  }
+  .cursor::before {
+    /* https://css-tricks.com/injecting-line-break/ */
+    content: "\A>";
+    white-space: pre;
+  }
+  .mobile-cursor {
+    display: none;
+  }
+}

@@ -1,11 +1,8 @@
 import Image from "next/image";
-import styles from "../../styles/SocialContainer.module.css";
+import styles from "./SocialLinks.module.css";
+import { Cli } from "../../../types/Props";
 
-interface SocialContainerProps {
-  simulateCliTyping: (text: string) => void;
-}
-
-const SocialContainer = ({ simulateCliTyping }: SocialContainerProps) => {
+const SocialLinks = ({ simulateCliTyping }: Cli) => {
   return (
     <div className={styles["social__container"]}>
       <a
@@ -32,4 +29,4 @@ const SocialContainer = ({ simulateCliTyping }: SocialContainerProps) => {
   );
 };
 
-export default SocialContainer;
+export default SocialLinks;

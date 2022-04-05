@@ -1,5 +1,6 @@
 .social__container {
   display: flex;
+  width: fit-content;
   justify-content: space-around;
   padding: 1em;
 }
