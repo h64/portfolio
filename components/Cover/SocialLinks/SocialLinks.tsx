@@ -6,7 +6,7 @@ const ICON_SIZE = 42;
 
 const SocialLinks = ({ simulateCliTyping }: Cli) => {
   return (
-    <div className={styles["social-container"]}>
+    <div className={styles.container}>
       <a
         href="https://github.com/h64"
         target="_blank"

@@ -3,7 +3,7 @@ export interface Cli {
 }
 
 export interface IntervalSingleton {
-  interval: number;
+  intervalId: number;
   start: (text: string) => void;
   stop: () => void;
   clear: () => void;
