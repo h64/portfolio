@@ -1,16 +1,17 @@
-import type { NextPage } from 'next'
-import styled from 'styled-components'
+import type { NextPage } from "next";
+import styled from "styled-components";
+import MaxWidthWrapper from "../components/MaxWidthWrapper";
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <MaxWidthWrapper>
       <Header>Hello World</Header>
-    </div>
-  )
-}
+    </MaxWidthWrapper>
+  );
+};
 
 const Header = styled.h1`
   color: blue;
 `;
 
-export default Home
+export default Home;
