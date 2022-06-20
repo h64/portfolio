@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { COLORS } from "../../constants";
 
 const GlobalStyles = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -83,7 +84,14 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
-
+    --color-white: hsl(${COLORS.white});
+    --color-black: hsl(${COLORS.black});
+    --color-primary: hsl(${COLORS.primary});
+    --color-secondary: hsl(${COLORS.gray[500]});
+    --color-tertiary: hsl(${COLORS.tertiary});
+    --color-gray-300: hsl(${COLORS.gray[300]});
+    --color-gray-500: hsl(${COLORS.gray[500]});
+    --color-gray-700: hsl(${COLORS.gray[700]});
   }
 `;
 
