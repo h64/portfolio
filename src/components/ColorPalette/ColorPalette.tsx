@@ -6,7 +6,7 @@ const ColorPalette = () => {
       <Row>
         <ColorBox color="color-gray-300">gray-300</ColorBox>
         <ColorBox color="color-gray-500">gray-500</ColorBox>
-        <ColorBox color="color-gray-700">gray-700</ColorBox>
+        <ColorBox color="color-gray-900">gray-900</ColorBox>
       </Row>
       <Row>
         <ColorBox color="color-primary">primary</ColorBox>

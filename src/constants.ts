@@ -16,7 +16,7 @@ export const COLORS = {
   gray: {
     300: "214deg 16% 63%",
     500: "225deg 5% 47%" /* secondary */,
-    700: "240deg 8% 9%",
+    900: "240deg 8% 9%",
   },
   primary: "254deg 83% 64%",
   tertiary: "155deg 61% 44%",
