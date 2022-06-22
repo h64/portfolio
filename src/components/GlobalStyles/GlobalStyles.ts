@@ -79,7 +79,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     line-height: 1.5;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    font-family: 'Inter',-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     -webkit-font-smoothing: antialiased;
     /* Always show vertical scrollbar - Reduce CLS */

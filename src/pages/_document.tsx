@@ -1,8 +1,39 @@
-import Document, { DocumentContext, DocumentInitialProps } from "next/document";
+import Document, {
+  DocumentContext,
+  DocumentInitialProps,
+  Html,
+  Head,
+  Main,
+  NextScript,
+} from "next/document";
+
 import { ServerStyleSheet } from "styled-components";
 
 // https://github.com/vercel/next.js/blob/canary/examples/with-styled-components-babel/pages/_document.tsx
-export default class MyDocument extends Document {
+class MyDocument extends Document {
+  render() {
+    return (
+      <Html>
+        <Head>
+          {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="true"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=optional"
+            rel="stylesheet"
+          /> */}
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
+
   static async getInitialProps(
     ctx: DocumentContext
   ): Promise<DocumentInitialProps> {
@@ -31,3 +62,5 @@ export default class MyDocument extends Document {
     }
   }
 }
+
+export default MyDocument;

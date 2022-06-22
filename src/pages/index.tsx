@@ -8,6 +8,10 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>👨🏻‍💻&nbsp;&nbsp;Henry Hong</title>
+        <meta
+          name="description"
+          content="Portfolio for Henry Hong, a software engineer specialized in building things for the web."
+        />
       </Head>
       <SkipToContent href="#content" />
       <Navbar />

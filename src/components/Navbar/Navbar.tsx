@@ -3,10 +3,11 @@ import styled from "styled-components";
 import { Menu } from "react-feather";
 import UnstyledButton from "../UnstyledButton";
 import VisuallyHidden from "../VisuallyHidden";
+import MaxWidthWrapper from "../MaxWidthWrapper";
 
 const Navbar = () => {
   return (
-    <Wrapper>
+    <Wrapper as="nav">
       <DesktopActions>
         <NavLink href="#">About</NavLink>
         <NavLink href="#">Experience</NavLink>
@@ -15,13 +16,11 @@ const Navbar = () => {
       </DesktopActions>
       <MobileActions>
         <UnstyledButton>
-          <Menu />
+          <IconWrapper>
+            <Menu height={32} width={32} />
+          </IconWrapper>
           <VisuallyHidden>Open Menu</VisuallyHidden>
         </UnstyledButton>
-        <button>
-          <Menu />
-          <VisuallyHidden>Open Menu</VisuallyHidden>
-        </button>
       </MobileActions>
     </Wrapper>
   );
@@ -50,12 +49,22 @@ const MobileActions = styled.div`
   }
 `;
 
-const Wrapper = styled.nav``;
+const Wrapper = styled(MaxWidthWrapper)`
+  display: flex;
+  justify-content: space-between;
+`;
 
 const NavLink = styled(Link)`
   text-decoration: none;
 `;
 
 const ResumeLink = styled(Link)``;
+
+const IconWrapper = styled.div`
+  min-width: 44px;
+  min-height: 44px;
+  display: grid;
+  place-content: center;
+`;
 
 export default Navbar;
