@@ -1,9 +1,10 @@
 import type { NextPage } from "next";
+import SkipToContent from "../components/SkipToContent";
 
 const Home: NextPage = () => {
   return (
     <>
-      <a href="#">Skip to content</a>
+      <SkipToContent href="#content" />
       <nav>
         <a href="#">Home</a>
         <a href="#">About</a>
@@ -28,7 +29,7 @@ const Home: NextPage = () => {
       </header>
       <main>
         <section>
-          <h2>About Me</h2>
+          <h2 id="content">About Me</h2>
           <p>
             Hi! My name is Henry and since childhood I&apos;ve been thoroughly
             fascinated by computers.
