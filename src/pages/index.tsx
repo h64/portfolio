@@ -1,17 +1,16 @@
 import type { NextPage } from "next";
+import Head from "next/head";
+import Navbar from "../components/Navbar";
 import SkipToContent from "../components/SkipToContent";
 
 const Home: NextPage = () => {
   return (
     <>
+      <Head>
+        <title>👨🏻‍💻&nbsp;&nbsp;Henry Hong</title>
+      </Head>
       <SkipToContent href="#content" />
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Work</a>
-        <a href="#">Resume</a>
-        <div>Toggle Dark Mode</div>
-      </nav>
+      <Navbar />
       <header>
         <div>Hello, World! 👋</div>
         <h1>

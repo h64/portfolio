@@ -5,9 +5,9 @@ export const BREAKPOINTS = {
 };
 
 export const QUERIES = {
-  phoneAndSmaller: `(max-width: ${BREAKPOINTS.phone / 16}rem)`,
-  tabletAndSmaller: `(max-width: ${BREAKPOINTS.tablet / 16}rem)`,
-  laptopAndSmaller: `(max-width: ${BREAKPOINTS.laptop / 16}rem)`,
+  phoneAndUp: `(min-width: ${BREAKPOINTS.phone / 16}rem)`, // 600px || 37.5rem
+  tabletAndUp: `(min-width: ${BREAKPOINTS.tablet / 16}rem)`, // 950px || 59.375rem
+  laptopAndUp: `(min-width: ${BREAKPOINTS.laptop / 16}rem)`, // 1300px || 81.25rem
 };
 
 export const COLORS = {
