@@ -4,11 +4,13 @@ import { Menu } from "react-feather";
 import UnstyledButton from "../UnstyledButton";
 import VisuallyHidden from "../VisuallyHidden";
 import MaxWidthWrapper from "../MaxWidthWrapper";
+import Logo from "../Logo";
 
 const Navbar = () => {
   return (
     <Wrapper as="nav">
       <DesktopActions>
+        <Logo />
         <NavLink href="#">About</NavLink>
         <NavLink href="#">Experience</NavLink>
         <NavLink href="#">Featured</NavLink>
@@ -29,10 +31,16 @@ const Navbar = () => {
 const DesktopActions = styled.div`
   display: none;
   justify-content: flex-end;
+  align-items: baseline;
   gap: 16px;
   padding: 16px;
   padding-top: 24px;
   padding-right: 24px;
+  flex: 1;
+
+  & div:first-of-type {
+    margin-right: auto;
+  }
 
   @media ${(p) => p.theme.queries.phoneAndUp} {
     display: flex;
@@ -49,12 +57,10 @@ const MobileActions = styled.div`
   }
 `;
 
-const Wrapper = styled(MaxWidthWrapper)`
-  display: flex;
-  justify-content: space-between;
-`;
+const Wrapper = styled(MaxWidthWrapper)``;
 
 const NavLink = styled(Link)`
+  /* display: inline-block; */
   text-decoration: none;
 `;
 
