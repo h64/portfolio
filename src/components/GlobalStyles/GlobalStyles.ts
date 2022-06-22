@@ -86,15 +86,33 @@ const GlobalStyles = createGlobalStyle`
     overflow-y: scroll;
   }
 
-  html {
-    --color-white: hsl(${COLORS.white});
-    --color-black: hsl(${COLORS.black});
-    --color-primary: hsl(${COLORS.primary});
-    --color-secondary: hsl(${COLORS.gray[300]});
-    --color-tertiary: hsl(${COLORS.tertiary});
-    --color-gray-300: hsl(${COLORS.gray[300]});
-    --color-gray-500: hsl(${COLORS.gray[500]});
-    --color-gray-900: hsl(${COLORS.gray[900]});
+  :root {
+
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background: ${COLORS.darkGrey};
+      --color-alt-background: ${COLORS.grey};
+      --color-headline: ${COLORS.white};
+      --color-paragraph: ${COLORS.lighterGrey};
+      --color-black: ${COLORS.black};
+      --color-highlight: ${COLORS.purple};
+      --color-secondary: ${COLORS.lightGrey};
+      --color-tertiary: ${COLORS.green};
+    } 
+    body {
+      /* Increased readability in dark mode
+        https://css-tricks.com/dark-mode-and-variable-fonts/ */
+      font-weight: 350;
+      background-color: var(--color-background);
+    } 
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 `;
 

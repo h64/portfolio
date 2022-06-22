@@ -12,19 +12,23 @@ const Link = styled.a`
   left: 0;
   padding: 16px 24px;
 
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  background-color: var(--color-highlight);
+  color: var(--color-headline);
   text-decoration: none;
   font-size: 1rem;
   font-weight: 700;
+
+  z-index: 1;
 
   will-change: transform;
   transform: translateX(-100%);
   /* transition: transform var(--slide-out-speed); */
 
+  &:focus {
+    transform: translate(0%);
+  }
   @media (prefers-reduced-motion: no-preference) {
     &:focus {
-      transform: translate(0%);
       transition: transform var(--slide-in-speed);
     }
   }

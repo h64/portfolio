@@ -1,29 +1,46 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import OutlineLink from "../OutlineLink";
+import VisuallyHidden from "../VisuallyHidden";
 
-const Logo = () => {
+const Logo = ({ href }: { href: string }) => {
   return (
-    <Wrapper>
-      <MainText>H</MainText>
-      <HoverText>H</HoverText>
+    <Wrapper href={href}>
+      <MainText aria-hidden="true">H</MainText>
+      <HoverText aria-hidden="true">H</HoverText>
+      <VisuallyHidden>Home</VisuallyHidden>
     </Wrapper>
   );
 };
 
-const Wrapper = styled.div`
+const danceAnimation = keyframes`
+  0% {
+    transform: scale(1) translateY(0px) skew(0deg);
+  }
+  25% {
+    transform: scale(1.15) translateY(1px) skew(-2deg);
+  }
+  50% {
+    transform: scale(1) translateY(0px) skew(0deg);
+  }
+  75% {
+    transform: scale(1.15) translateY(1px) skew(2deg);
+  }
+`;
+
+const Wrapper = styled(OutlineLink)`
   position: relative;
   overflow: hidden;
+  display: inline-block;
   font-size: 2.25rem;
   font-weight: 900;
   line-height: 1;
 
-  transition: transform 300ms;
   transform-origin: 50% 85%;
   will-change: transform;
-
   @media (prefers-reduced-motion: no-preference) {
     &:hover {
-      transform: scale(1.1) translateY(1px) skew(2deg);
-      transition: transform 200ms;
+      animation: ${danceAnimation} 2000ms infinite
+        cubic-bezier(0.65, 0.05, 0.36, 1);
     }
   }
 `;
@@ -48,7 +65,7 @@ const HoverText = styled(Text)`
   position: absolute;
   top: 0;
   left: 0;
-  color: var(--color-primary);
+  color: var(--color-highlight);
   transform: translateY(100%);
 `;
 

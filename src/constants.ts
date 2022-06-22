@@ -11,13 +11,12 @@ export const QUERIES = {
 };
 
 export const COLORS = {
-  white: "60deg 100% 99%",
-  black: "0deg 0% 0%",
-  gray: {
-    300: "214deg 16% 63%",
-    500: "225deg 5% 47%" /* secondary */,
-    900: "240deg 8% 9%",
-  },
-  primary: "254deg 83% 64%",
-  tertiary: "155deg 61% 44%",
+  black: "#010101",
+  darkGrey: "#16161a",
+  grey: "#242629",
+  lightGrey: "#72757e",
+  lighterGrey: "#94a1b2",
+  white: "#fffffe",
+  purple: "#7f5af0",
+  green: "#2cb67d",
 };

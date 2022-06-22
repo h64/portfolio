@@ -5,15 +5,16 @@ import UnstyledButton from "../UnstyledButton";
 import VisuallyHidden from "../VisuallyHidden";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import Logo from "../Logo";
+import OutlineLink from "../OutlineLink";
 
 const Navbar = () => {
   return (
     <Wrapper as="nav">
       <DesktopActions>
-        <Logo />
-        <NavLink href="#">About</NavLink>
-        <NavLink href="#">Experience</NavLink>
-        <NavLink href="#">Featured</NavLink>
+        <Logo href="/" />
+        <NavLink href="#about">About</NavLink>
+        <NavLink href="#experience">Experience</NavLink>
+        <NavLink href="#featured">Featured</NavLink>
         <ResumeLink href="#">Resume</ResumeLink>
       </DesktopActions>
       <MobileActions>
@@ -28,17 +29,20 @@ const Navbar = () => {
   );
 };
 
+const Wrapper = styled(MaxWidthWrapper)`
+  color: var(--color-headline);
+  padding-top: 24px;
+  padding-bottom: 16px;
+`;
+
 const DesktopActions = styled.div`
   display: none;
   justify-content: flex-end;
   align-items: baseline;
-  gap: 16px;
-  padding: 16px;
-  padding-top: 24px;
-  padding-right: 24px;
+  gap: 24px;
   flex: 1;
 
-  & div:first-of-type {
+  & a:first-of-type {
     margin-right: auto;
   }
 
@@ -50,21 +54,31 @@ const DesktopActions = styled.div`
 const MobileActions = styled.div`
   display: flex;
   justify-content: flex-end;
-  padding: 16px;
 
   @media ${(p) => p.theme.queries.phoneAndUp} {
     display: none;
   }
 `;
 
-const Wrapper = styled(MaxWidthWrapper)``;
-
-const NavLink = styled(Link)`
-  /* display: inline-block; */
-  text-decoration: none;
+const NavLink = styled(OutlineLink)`
+  &:hover {
+    color: var(--color-highlight);
+  }
 `;
 
-const ResumeLink = styled(Link)``;
+const ResumeLink = styled.a`
+  display: inline-block;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-highlight);
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    background-color: var(--color-highlight);
+  }
+`;
 
 const IconWrapper = styled.div`
   min-width: 44px;

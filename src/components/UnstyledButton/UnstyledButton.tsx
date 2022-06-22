@@ -7,6 +7,7 @@ export default styled.button`
   border: none;
   background: transparent;
   cursor: pointer;
+  color: inherit;
 
   &:focus {
     outline-offset: 2px;
