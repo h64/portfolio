@@ -12,14 +12,16 @@ const HeaderContent = () => {
         I&apos;m a software engineer specialized in building things for the web.
         👨🏻‍💻
       </SubHeading>
-      <div>
-        Get in touch 👉 <span>henry@hong.dev</span>
-      </div>
-      <div>
-        <span>LinkedInSVG</span>
-        <span>GithubSVG</span>
-        <span>MailSVG</span>
-      </div>
+      <ContactWrapper>
+        <div>
+          Get in touch 👉 <span>henry@hong.dev</span>
+        </div>
+        <div>
+          <span>LinkedInSVG</span>
+          <span>GithubSVG</span>
+          <span>MailSVG</span>
+        </div>
+      </ContactWrapper>
     </Wrapper>
   );
 };
@@ -48,6 +50,10 @@ const SubHeading = styled.h2`
   @media ${(p) => p.theme.queries.phoneAndUp} {
     max-width: 80%;
   }
+`;
+
+const ContactWrapper = styled.div`
+  padding-top: 32px;
 `;
 
 export default HeaderContent;

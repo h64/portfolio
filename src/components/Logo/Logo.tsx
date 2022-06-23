@@ -35,11 +35,11 @@ const Wrapper = styled(OutlineLink)`
   font-weight: 900;
   line-height: 1;
 
-  transform-origin: 50% 85%;
+  transform-origin: 50% 90%;
   will-change: transform;
   @media (prefers-reduced-motion: no-preference) {
     &:hover {
-      animation: ${danceAnimation} 2000ms infinite
+      animation: ${danceAnimation} 1500ms infinite
         cubic-bezier(0.65, 0.05, 0.36, 1);
     }
   }

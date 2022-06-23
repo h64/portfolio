@@ -5,31 +5,41 @@ const SkipToContent = ({ href }: { href: string }) => {
 };
 
 const Link = styled.a`
+  --fade-in-time: 200ms;
+  --fade-out-time: 500ms;
   --slide-in-speed: 200ms;
-  --slide-out-speed: 400ms;
+  --slide-out-speed: 500ms;
+
   position: absolute;
   top: 0;
   left: 0;
-  padding: 16px 24px;
-
-  background-color: var(--color-highlight);
-  color: var(--color-headline);
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 700;
-
   z-index: 1;
+
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--color-headline);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-highlight);
 
   will-change: transform;
   transform: translateX(-100%);
-  /* transition: transform var(--slide-out-speed); */
+  transition: background-color var(--fade-in-time),
+    transform var(--slide-out-speed);
+
+  transition-duration: 0ms;
 
   &:focus {
-    transform: translate(0%);
+    transform: translateX(0%);
+    outline: none;
+    background-color: var(--color-highlight);
   }
+
   @media (prefers-reduced-motion: no-preference) {
     &:focus {
-      transition: transform var(--slide-in-speed);
+      transition: background-color var(--fade-out-time)
+          calc(var(--slide-in-speed) / 2),
+        transform var(--slide-in-speed);
     }
   }
 `;
