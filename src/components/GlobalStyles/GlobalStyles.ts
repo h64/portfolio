@@ -77,29 +77,34 @@ const GlobalStyles = createGlobalStyle`
     height: 100%;
   }
 
+  html {
+    /* Always show vertical scrollbar - Reduce CLS */
+    overflow-y: scroll;
+  }
+
   body {
     line-height: 1.5;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     -webkit-font-smoothing: antialiased;
-    /* Always show vertical scrollbar - Reduce CLS */
-    overflow-y: scroll;
   }
 
   :root {
-
+    color-scheme: light dark;
+    accent-color: var(--color-highlight);
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --color-background: ${COLORS.darkGrey};
-      --color-alt-background: ${COLORS.grey};
-      --color-headline: ${COLORS.white};
-      --color-paragraph: ${COLORS.lighterGrey};
-      --color-black: ${COLORS.black};
-      --color-highlight: ${COLORS.purple};
-      --color-secondary: ${COLORS.lightGrey};
-      --color-tertiary: ${COLORS.green};
+      --color-background: hsl(${COLORS.darkGrey});
+      --color-alt-background: hsl(${COLORS.grey});
+      --color-headline: hsl(${COLORS.white});
+      --color-paragraph: hsl(${COLORS.lighterGrey});
+      --color-black: hsl(${COLORS.black});
+      --color-highlight: hsl(${COLORS.purple});
+      --color-secondary: hsl(${COLORS.lightGrey});
+      --color-tertiary: hsl(${COLORS.green});
+      --color-backdrop: hsl(${COLORS.grey} / 0.8);
     } 
     body {
       /* Increased readability in dark mode

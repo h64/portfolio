@@ -1,13 +1,16 @@
-import Link from "next/link";
 import styled from "styled-components";
 import { Menu } from "react-feather";
+import { useState } from "react";
 import UnstyledButton from "../UnstyledButton";
 import VisuallyHidden from "../VisuallyHidden";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import Logo from "../Logo";
 import OutlineLink from "../OutlineLink";
+import MobileNav from "../MobileNav";
 
 const Navbar = () => {
+  let [isOpen, setIsOpen] = useState(false);
+
   return (
     <Wrapper as="nav">
       <DesktopActions>
@@ -18,13 +21,14 @@ const Navbar = () => {
         <ResumeLink href="#">Resume</ResumeLink>
       </DesktopActions>
       <MobileActions>
-        <UnstyledButton>
+        <UnstyledButton onClick={() => setIsOpen(true)}>
           <IconWrapper>
             <Menu height={32} width={32} />
           </IconWrapper>
           <VisuallyHidden>Open Menu</VisuallyHidden>
         </UnstyledButton>
       </MobileActions>
+      <MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />
     </Wrapper>
   );
 };
