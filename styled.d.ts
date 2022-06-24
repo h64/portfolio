@@ -4,7 +4,7 @@ import "styled-components";
 // and extend them!
 declare module "styled-components" {
   export interface DefaultTheme {
-    queries: {
+    mediaQueries: {
       phoneAndUp: string;
       tabletAndUp: string;
       laptopAndUp: string;

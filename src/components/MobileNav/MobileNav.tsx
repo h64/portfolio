@@ -28,9 +28,12 @@ const MobileNav = ({
       <Overlay>
         <Content>
           <FadeWrapper>
-            <MobileButton onClick={() => setIsOpen(false)} label="Close Menu">
-              <X width={32} height={32} />
-            </MobileButton>
+            <ButtonWrapper>
+              <MobileButton onClick={() => setIsOpen(false)} label="Close Menu">
+                <X width={32} height={32} />
+              </MobileButton>
+            </ButtonWrapper>
+            <Filler />
             <Nav>
               <Link href="#">About</Link>
               <Link href="#">Experience</Link>
@@ -95,9 +98,9 @@ const Overlay = styled(Dialog.Panel)`
 
 const Content = styled.nav`
   --overfill: 16px;
-  pointer-events: all;
   display: flex;
   flex-direction: column;
+  pointer-events: all;
   background-color: var(--color-alt-background);
   color: var(--color-headline);
   height: 100%;
@@ -122,7 +125,11 @@ const FadeWrapper = styled.div`
   }
 `;
 
-const CloseButton = styled(UnstyledButton)``;
+const ButtonWrapper = styled.div`
+  position: absolute;
+  top: 16px;
+  right: calc(16px + var(--overfill));
+`;
 
 const Nav = styled.nav`
   display: flex;
@@ -134,4 +141,7 @@ const Footer = styled.footer`
   flex-direction: column;
 `;
 
+const Filler = styled.div`
+  flex: 1;
+`;
 export default MobileNav;

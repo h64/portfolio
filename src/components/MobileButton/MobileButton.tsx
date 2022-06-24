@@ -13,7 +13,7 @@ const MobileButton = ({ onClick, children, label }: MobileButtonProps) => {
   return (
     <ButtonWrapper onClick={onClick}>
       <IconWrapper>{children}</IconWrapper>
-      <VisuallyHidden>Open Mobile Navigation</VisuallyHidden>
+      <VisuallyHidden>{label}</VisuallyHidden>
     </ButtonWrapper>
   );
 };

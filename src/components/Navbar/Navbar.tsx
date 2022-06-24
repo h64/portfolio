@@ -50,7 +50,7 @@ const DesktopActions = styled.div`
     margin-right: auto;
   }
 
-  @media ${(p) => p.theme.queries.phoneAndUp} {
+  @media ${(p) => p.theme.mediaQueries.phoneAndUp} {
     display: flex;
   }
 `;
@@ -59,7 +59,7 @@ const MobileActions = styled.div`
   display: flex;
   justify-content: flex-end;
 
-  @media ${(p) => p.theme.queries.phoneAndUp} {
+  @media ${(p) => p.theme.mediaQueries.phoneAndUp} {
     display: none;
   }
 `;
@@ -106,24 +106,6 @@ const ResumeLink = styled.a`
     outline: none;
     transition: background-color var(--fade-out-time);
     background-color: var(--color-highlight);
-  }
-`;
-
-const IconWrapper = styled.div`
-  min-width: 44px;
-  min-height: 44px;
-  display: grid;
-  place-content: center;
-`;
-
-const MenuButton = styled(UnstyledButton)`
-  will-change: transform;
-  outline-width: 1px;
-  transition: outline-offset 200ms, outline-width 200ms;
-
-  &:focus {
-    outline: 2px dotted var(--color-highlight);
-    outline-width: 2px;
   }
 `;
 

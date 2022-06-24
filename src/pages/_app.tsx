@@ -7,7 +7,7 @@ import { QUERIES } from "../constants";
 import "/public/fonts/styles.css";
 
 const theme = {
-  queries: QUERIES,
+  mediaQueries: QUERIES,
 };
 
 function MyApp({ Component, pageProps }: AppProps) {
