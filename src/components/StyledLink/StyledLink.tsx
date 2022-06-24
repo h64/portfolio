@@ -1,20 +1,18 @@
-// underline animation, focus outline fill animation
-
 import Link from "next/link";
 import styled, { css } from "styled-components";
 
 interface StyledLinkProps {
   href: string /* potentially missing functionality from UrlObject */;
-  children: string;
   type?: "fill" | "underline";
+  children?: string | JSX.Element | JSX.Element[];
 }
 
 const StyledLink = ({ href, children, type }: StyledLinkProps) => {
   return (
     <Link href={href} passHref>
-      <NativeAnchor href={href} type={type}>
+      <NativeAnchorStyles href={href} type={type}>
         {children}
-      </NativeAnchor>
+      </NativeAnchorStyles>
     </Link>
   );
 };
@@ -61,7 +59,7 @@ const underlineAnimation = css`
   }
 `;
 
-const NativeAnchor = styled.a`
+export const NativeAnchorStyles = styled.a`
   display: inline-block;
   text-decoration: none;
   color: var(--color-headline);

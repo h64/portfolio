@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import OutlineLink from "../OutlineLink";
+import { NativeAnchorStyles } from "../StyledLink";
 import VisuallyHidden from "../VisuallyHidden";
 
 const Logo = ({ href }: { href: string }) => {
@@ -27,7 +27,7 @@ const danceAnimation = keyframes`
   }
 `;
 
-const Wrapper = styled(OutlineLink)`
+const Wrapper = styled(NativeAnchorStyles)`
   position: relative;
   overflow: hidden;
   display: inline-block;

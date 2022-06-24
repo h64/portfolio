@@ -6,7 +6,6 @@ import styled, { keyframes } from "styled-components";
 import { BREAKPOINTS } from "../../constants";
 import useWindowSize, { Size } from "../../hooks/useWindowSize";
 import MobileButton from "../TappableButton";
-import UnstyledButton from "../UnstyledButton";
 
 const MobileNav = ({
   isOpen,

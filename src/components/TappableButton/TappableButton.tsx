@@ -1,6 +1,6 @@
 import { MouseEventHandler } from "react";
 import styled from "styled-components";
-import UnstyledButton from "../UnstyledButton";
+import UnstyledButtonStyles from "../UnstyledButtonStyles";
 import VisuallyHidden from "../VisuallyHidden";
 
 interface MobileButtonProps {
@@ -18,7 +18,7 @@ const MobileButton = ({ onClick, children, label }: MobileButtonProps) => {
   );
 };
 
-const ButtonWrapper = styled(UnstyledButton)`
+const ButtonWrapper = styled(UnstyledButtonStyles)`
   will-change: transform;
   outline-width: 1px;
   transition: outline-offset 200ms, outline-width 200ms;
