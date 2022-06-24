@@ -2,11 +2,11 @@ import styled from "styled-components";
 import { Menu } from "react-feather";
 import { useState } from "react";
 import UnstyledButton from "../UnstyledButton";
-import VisuallyHidden from "../VisuallyHidden";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import Logo from "../Logo";
 import OutlineLink from "../OutlineLink";
 import MobileNav from "../MobileNav";
+import MobileButton from "../MobileButton";
 
 const Navbar = () => {
   let [isOpen, setIsOpen] = useState(false);
@@ -21,12 +21,12 @@ const Navbar = () => {
         <ResumeLink href="#">Resume</ResumeLink>
       </DesktopActions>
       <MobileActions>
-        <UnstyledButton onClick={() => setIsOpen(true)}>
-          <IconWrapper>
-            <Menu height={32} width={32} />
-          </IconWrapper>
-          <VisuallyHidden>Open Menu</VisuallyHidden>
-        </UnstyledButton>
+        <MobileButton
+          onClick={() => setIsOpen(true)}
+          label={"Open Mobile Navigation"}
+        >
+          <Menu height={32} width={32} />
+        </MobileButton>
       </MobileActions>
       <MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />
     </Wrapper>
@@ -114,6 +114,17 @@ const IconWrapper = styled.div`
   min-height: 44px;
   display: grid;
   place-content: center;
+`;
+
+const MenuButton = styled(UnstyledButton)`
+  will-change: transform;
+  outline-width: 1px;
+  transition: outline-offset 200ms, outline-width 200ms;
+
+  &:focus {
+    outline: 2px dotted var(--color-highlight);
+    outline-width: 2px;
+  }
 `;
 
 export default Navbar;

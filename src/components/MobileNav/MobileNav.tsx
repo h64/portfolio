@@ -1,6 +1,12 @@
 import { Dialog } from "@headlessui/react";
-import { Dispatch, SetStateAction } from "react";
+import Link from "next/link";
+import { Dispatch, SetStateAction, useEffect } from "react";
+import { X } from "react-feather";
 import styled, { keyframes } from "styled-components";
+import { BREAKPOINTS } from "../../constants";
+import useWindowSize, { Size } from "../../hooks/useWindowSize";
+import MobileButton from "../MobileButton";
+import UnstyledButton from "../UnstyledButton";
 
 const MobileNav = ({
   isOpen,
@@ -9,23 +15,33 @@ const MobileNav = ({
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }) => {
+  const size: Size = useWindowSize();
+
+  useEffect(() => {
+    if (size.width && size.width > BREAKPOINTS.tablet) {
+      setIsOpen(false);
+    }
+  }, [size.width, setIsOpen]);
+
   return (
     <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
       <Overlay>
         <Content>
           <FadeWrapper>
-            <Dialog.Title>Deactivate account</Dialog.Title>
-            <Dialog.Description>
-              This will permanently deactivate your account
-            </Dialog.Description>
-
-            <p>
-              Are you sure you want to deactivate your account? All of your data
-              will be permanently removed. This action cannot be undone.
-            </p>
-
-            <button onClick={() => setIsOpen(false)}>Deactivate</button>
-            <button onClick={() => setIsOpen(false)}>Cancel</button>
+            <MobileButton onClick={() => setIsOpen(false)} label="Close Menu">
+              <X width={32} height={32} />
+            </MobileButton>
+            <Nav>
+              <Link href="#">About</Link>
+              <Link href="#">Experience</Link>
+              <Link href="#">Featured</Link>
+              <Link href="#">Resume</Link>
+            </Nav>
+            <Footer>
+              <Link href="https://www.google.com">LinkedIn</Link>
+              <Link href="https://www.google.com">Github</Link>
+              <Link href="https://www.google.com">Google</Link>
+            </Footer>
           </FadeWrapper>
         </Content>
       </Overlay>
@@ -79,6 +95,7 @@ const Overlay = styled(Dialog.Panel)`
 
 const Content = styled.nav`
   --overfill: 16px;
+  pointer-events: all;
   display: flex;
   flex-direction: column;
   background-color: var(--color-alt-background);
@@ -103,6 +120,18 @@ const FadeWrapper = styled.div`
     animation: ${fadeIn} 600ms both;
     animation-delay: 400ms;
   }
+`;
+
+const CloseButton = styled(UnstyledButton)``;
+
+const Nav = styled.nav`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Footer = styled.footer`
+  display: flex;
+  flex-direction: column;
 `;
 
 export default MobileNav;
