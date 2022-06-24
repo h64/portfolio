@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { Menu } from "react-feather";
 import { useState } from "react";
-import UnstyledButton from "../UnstyledButton";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import Logo from "../Logo";
 import OutlineLink from "../OutlineLink";
 import MobileNav from "../MobileNav";
-import MobileButton from "../MobileButton";
+import MobileButton from "../TappableButton";
+import StyledLink from "../StyledLink";
+import Link from "next/link";
 
 const Navbar = () => {
   let [isOpen, setIsOpen] = useState(false);

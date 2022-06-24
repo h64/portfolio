@@ -5,7 +5,7 @@ import { X } from "react-feather";
 import styled, { keyframes } from "styled-components";
 import { BREAKPOINTS } from "../../constants";
 import useWindowSize, { Size } from "../../hooks/useWindowSize";
-import MobileButton from "../MobileButton";
+import MobileButton from "../TappableButton";
 import UnstyledButton from "../UnstyledButton";
 
 const MobileNav = ({
@@ -51,9 +51,6 @@ const MobileNav = ({
     </Dialog>
   );
 };
-
-/* https://stackoverflow.com/questions/36862334/get-viewport-window-height-in-reactjs */
-/* when window too large, disable modal */
 
 const fadeBackground = keyframes`
   from {
@@ -144,4 +141,5 @@ const Footer = styled.footer`
 const Filler = styled.div`
   flex: 1;
 `;
+
 export default MobileNav;

@@ -47,7 +47,7 @@ const Headline = styled.h1`
 const SubHeading = styled.h2`
   font-size: 1.5rem;
 
-  @media ${(p) => p.theme.queries.phoneAndUp} {
+  @media ${(p) => p.theme.mediaQueries.phoneAndUp} {
     max-width: 80%;
   }
 `;
