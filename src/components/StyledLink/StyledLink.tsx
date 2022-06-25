@@ -69,11 +69,12 @@ export const NativeAnchorStyles = styled.a`
   outline-offset: 4px;
   outline-width: 1px;
   transition: outline-offset 200ms, outline-width 200ms;
-
-  &:focus {
-    outline: 2px dotted var(--color-highlight);
-    outline-offset: 8px;
-    outline-width: 2px;
+  @media (hover: hover) and (pointer: fine) {
+    &:focus {
+      outline: 2px dotted var(--color-highlight);
+      outline-offset: 8px;
+      outline-width: 2px;
+    }
   }
 
   ${(p) => getAnimationStyles(p.type)}
