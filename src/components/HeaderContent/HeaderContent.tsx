@@ -30,6 +30,7 @@ const Wrapper = styled(MaxWidthWrapper)`
   padding-top: 96px;
   padding-bottom: 96px;
   min-height: 90%;
+  min-width: min-content;
   color: var(--color-paragraph);
 `;
 
