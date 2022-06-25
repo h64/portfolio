@@ -1,18 +1,19 @@
 import Link from "next/link";
 import styled, { css } from "styled-components";
+import { StyledLink } from "../SharedStyles";
 
-interface StyledLinkProps {
+interface AnimatedLinkProps {
   href: string /* potentially missing functionality from UrlObject */;
   type?: "fill" | "underline";
   children?: string | JSX.Element | JSX.Element[];
 }
 
-const StyledLink = ({ href, children, type }: StyledLinkProps) => {
+const AnimatedLink = ({ href, children, type }: AnimatedLinkProps) => {
   return (
     <Link href={href} passHref>
-      <NativeAnchorStyles href={href} type={type}>
+      <NativeAnchor href={href} type={type}>
         {children}
-      </NativeAnchorStyles>
+      </NativeAnchor>
     </Link>
   );
 };
@@ -59,24 +60,7 @@ const underlineAnimation = css`
   }
 `;
 
-export const NativeAnchorStyles = styled.a`
-  display: inline-block;
-  text-decoration: none;
-  color: var(--color-headline);
-  cursor: pointer;
-
-  will-change: transform;
-  outline-offset: 4px;
-  outline-width: 1px;
-  transition: outline-offset 200ms, outline-width 200ms;
-  @media (hover: hover) and (pointer: fine) {
-    &:focus {
-      outline: 2px dotted var(--color-highlight);
-      outline-offset: 8px;
-      outline-width: 2px;
-    }
-  }
-
+const NativeAnchor = styled(StyledLink)`
   ${(p) => getAnimationStyles(p.type)}
 `;
 
@@ -91,4 +75,4 @@ function getAnimationStyles(type: string | undefined) {
   }
 }
 
-export default StyledLink;
+export default AnimatedLink;

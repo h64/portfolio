@@ -1,12 +1,11 @@
-import { Dispatch, SetStateAction, useEffect } from "react";
-import { Dialog } from "@headlessui/react";
+import { Dispatch, Fragment, SetStateAction, useEffect } from "react";
+import { Dialog, Transition } from "@headlessui/react";
 import { X } from "react-feather";
-import Link from "next/link";
 import styled, { keyframes } from "styled-components";
 import MobileButton from "../TappableButton";
 import useWindowSize, { Size } from "../../hooks/useWindowSize";
 import { BREAKPOINTS } from "../../constants";
-import StyledLink from "../StyledLink";
+import AnimatedLink from "../AnimatedLink";
 
 interface AnimatedProps {
   readonly isOpen: boolean;
@@ -28,44 +27,56 @@ const MobileNav = ({
   }, [size.width, setIsOpen]);
 
   return (
-    <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
-      <Backdrop />
-      <Panel>
-        <FadeWrapper isOpen={isOpen}>
-          <ButtonWrapper>
-            <MobileButton onClick={() => setIsOpen(false)} label="Close Menu">
-              <X width={32} height={32} />
-            </MobileButton>
-          </ButtonWrapper>
-          <Filler />
-          <Nav>
-            <StyledLink type="underline" href="#">
-              About
-            </StyledLink>
-            <StyledLink type="underline" href="#">
-              Experience
-            </StyledLink>
-            <StyledLink type="underline" href="#">
-              Featured
-            </StyledLink>
-            <StyledLink type="underline" href="#">
-              Resume
-            </StyledLink>
-          </Nav>
-          <Footer>
-            <StyledLink type="underline" href="https://www.google.com">
-              LinkedIn
-            </StyledLink>
-            <StyledLink type="underline" href="https://www.google.com">
-              Github
-            </StyledLink>
-            <StyledLink type="underline" href="https://www.google.com">
-              Google
-            </StyledLink>
-          </Footer>
-        </FadeWrapper>
-      </Panel>
-    </Dialog>
+    <Transition show={isOpen}>
+      <Dialog onClose={() => setIsOpen(false)}>
+        <Transition.Child
+          as={Fragment}
+          // enterFrom="background-color"
+        >
+          <Backdrop />
+        </Transition.Child>
+        <Transition.Child as={Fragment}>
+          <Panel>
+            <FadeWrapper isOpen={isOpen}>
+              <ButtonWrapper>
+                <MobileButton
+                  onClick={() => setIsOpen(false)}
+                  label="Close Menu"
+                >
+                  <X width={32} height={32} />
+                </MobileButton>
+              </ButtonWrapper>
+              <Filler />
+              <Nav>
+                <AnimatedLink type="underline" href="#">
+                  About
+                </AnimatedLink>
+                <AnimatedLink type="underline" href="#">
+                  Experience
+                </AnimatedLink>
+                <AnimatedLink type="underline" href="#">
+                  Featured
+                </AnimatedLink>
+                <AnimatedLink type="fill" href="#">
+                  &gt; Resume
+                </AnimatedLink>
+              </Nav>
+              <Footer>
+                <AnimatedLink type="underline" href="https://www.google.com">
+                  LinkedIn
+                </AnimatedLink>
+                <AnimatedLink type="underline" href="https://www.google.com">
+                  Github
+                </AnimatedLink>
+                <AnimatedLink type="underline" href="https://www.google.com">
+                  Google
+                </AnimatedLink>
+              </Footer>
+            </FadeWrapper>
+          </Panel>
+        </Transition.Child>
+      </Dialog>
+    </Transition>
   );
 };
 
@@ -101,9 +112,9 @@ const Backdrop = styled.div`
   inset: 0;
   background-color: var(--color-backdrop);
 
-  @media (prefers-reduced-motion: no-preference) {
+  /* @media (prefers-reduced-motion: no-preference) {
     animation: ${fadeBackground} 500ms both;
-  }
+  } */
 `;
 
 const Panel = styled(Dialog.Panel)`
@@ -123,10 +134,10 @@ const Panel = styled(Dialog.Panel)`
   padding: 24px 32px;
   padding-right: calc(32px + var(--overfill));
 
-  @media (prefers-reduced-motion: no-preference) {
+  /* @media (prefers-reduced-motion: no-preference) {
     animation: ${slideIn} 300ms both cubic-bezier(0, 0.6, 0.35, 1.05);
     animation-delay: 300ms;
-  }
+  } */
 `;
 
 const FadeWrapper = styled.div<AnimatedProps>`
@@ -135,10 +146,10 @@ const FadeWrapper = styled.div<AnimatedProps>`
   justify-content: space-between;
   height: 100%;
 
-  @media (prefers-reduced-motion: no-preference) {
+  /* @media (prefers-reduced-motion: no-preference) {
     animation: ${fadeIn} 600ms both;
     animation-delay: 400ms;
-  }
+  } */
 `;
 
 const InnerWrapper = styled.div`

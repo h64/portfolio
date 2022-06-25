@@ -5,7 +5,7 @@ import MaxWidthWrapper from "../MaxWidthWrapper";
 import Logo from "../Logo";
 import MobileNav from "../MobileNav";
 import MobileButton from "../TappableButton";
-import StyledLink from "../StyledLink";
+import AnimatedLink from "../AnimatedLink";
 
 const Navbar = () => {
   let [isOpen, setIsOpen] = useState(false);
@@ -14,18 +14,18 @@ const Navbar = () => {
     <Wrapper as="nav">
       <DesktopActions>
         <Logo href="/" />
-        <StyledLink href="#about" type="underline">
+        <AnimatedLink href="#about" type="underline">
           About
-        </StyledLink>
-        <StyledLink href="#experience" type="underline">
+        </AnimatedLink>
+        <AnimatedLink href="#experience" type="underline">
           Experience
-        </StyledLink>
-        <StyledLink href="#featured" type="underline">
+        </AnimatedLink>
+        <AnimatedLink href="#featured" type="underline">
           Featured
-        </StyledLink>
-        <StyledLink href="#" type="fill">
+        </AnimatedLink>
+        <AnimatedLink href="#" type="fill">
           Resume
-        </StyledLink>
+        </AnimatedLink>
       </DesktopActions>
       <MobileActions>
         <MobileButton

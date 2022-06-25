@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { NativeAnchorStyles } from "../StyledLink";
+import { StyledLink } from "../SharedStyles";
 import VisuallyHidden from "../VisuallyHidden";
 
 const Logo = ({ href }: { href: string }) => {
@@ -27,7 +27,7 @@ const danceAnimation = keyframes`
   }
 `;
 
-const Wrapper = styled(NativeAnchorStyles)`
+const Wrapper = styled(StyledLink)`
   position: relative;
   overflow: hidden;
   display: inline-block;
@@ -59,6 +59,7 @@ const MainText = styled(Text)`
   --translate-from: 0%;
   --translate-to: 0%;
 `;
+
 const HoverText = styled(Text)`
   --translate-from: 100%;
   --translate-to: 0%;
@@ -66,6 +67,8 @@ const HoverText = styled(Text)`
   top: 0;
   left: 0;
   color: var(--color-highlight);
+  filter: drop-shadow(0px 0px 2px var(--color-highlight));
+
   transform: translateY(100%);
 `;
 

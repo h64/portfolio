@@ -1,1 +1,1 @@
-export { UnstyledButton } from "./SharedStyles";
+export { UnstyledButton, StyledLink } from "./SharedStyles";
