@@ -24,7 +24,8 @@ export const StyledLink = styled.a`
   color: var(--color-headline);
   cursor: pointer;
 
-  will-change: transform;
+  scroll-padding: 1rem;
+
   outline-offset: 4px;
   outline-width: 1px;
   transition: outline-offset 200ms, outline-width 200ms;

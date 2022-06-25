@@ -50,7 +50,7 @@ const underlineAnimation = css`
     left: 0;
     right: 0;
     bottom: 0;
-    transform: translateX(-100%);
+    transform: translateX(calc(-100% - 1px));
     transition: transform var(--slide-out-speed);
   }
 
