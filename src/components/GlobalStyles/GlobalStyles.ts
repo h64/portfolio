@@ -119,6 +119,7 @@ const GlobalStyles = createGlobalStyle`
       scroll-behavior: smooth;
     }
   }
+
 `;
 
 export default GlobalStyles;

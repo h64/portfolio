@@ -22,9 +22,6 @@ export const StyledLink = styled.a`
   display: inline-block;
   text-decoration: none;
   color: var(--color-headline);
-  cursor: pointer;
-
-  scroll-padding: 1rem;
 
   outline-offset: 4px;
   outline-width: 1px;
