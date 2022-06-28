@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { UnstyledButton } from "../SharedStyles";
 import VisuallyHidden from "../VisuallyHidden";
 
-interface MobileButtonProps {
+interface TappableButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
   children: JSX.Element;
   label: string;
 }
 
-const MobileButton = ({ onClick, children, label }: MobileButtonProps) => {
+const TappableButton = ({ onClick, children, label }: TappableButtonProps) => {
   return (
     <ButtonWrapper onClick={onClick}>
       <IconWrapper>{children}</IconWrapper>
@@ -41,4 +41,4 @@ const IconWrapper = styled.div`
   place-content: center;
 `;
 
-export default MobileButton;
+export default TappableButton;
