@@ -4,7 +4,7 @@ import { UnstyledButton } from "../SharedStyles";
 import VisuallyHidden from "../VisuallyHidden";
 
 interface MobileButtonProps {
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
   children: JSX.Element;
   label: string;
 }
@@ -21,8 +21,13 @@ const MobileButton = ({ onClick, children, label }: MobileButtonProps) => {
 const ButtonWrapper = styled(UnstyledButton)`
   will-change: transform;
   outline-width: 1px;
-  transition: outline-offset 200ms, outline-width 200ms;
+  transition: outline-offset 200ms, outline-width 200ms, color 300ms;
 
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--color-highlight);
+    }
+  }
   &:focus {
     outline: 2px dotted var(--color-highlight);
     outline-width: 2px;

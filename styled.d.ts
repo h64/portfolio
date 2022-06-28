@@ -5,9 +5,9 @@ import "styled-components";
 declare module "styled-components" {
   export interface DefaultTheme {
     mediaQueries: {
-      phoneAndUp: string;
       tabletAndUp: string;
       laptopAndUp: string;
+      desktopAndUp: string;
     };
   }
 }

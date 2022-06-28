@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction, useEffect } from "react";
 import { Dialog } from "@headlessui/react";
 import { X } from "react-feather";
-import styled, { Keyframes, keyframes } from "styled-components";
-import MobileButton from "../TappableButton";
+import styled, { keyframes } from "styled-components";
+import TappableButton from "../TappableButton";
 import useWindowSize, { Size } from "../../hooks/useWindowSize";
 import { BREAKPOINTS } from "../../constants";
 import AnimatedLink from "../AnimatedLink";
@@ -32,9 +32,9 @@ const MobileNav = ({
       <Panel>
         <FadeWrapper isOpen={isOpen}>
           <ButtonWrapper>
-            <MobileButton onClick={() => setIsOpen(false)} label="Close Menu">
+            <TappableButton onClick={() => setIsOpen(false)} label="Close Menu">
               <X width={32} height={32} />
-            </MobileButton>
+            </TappableButton>
           </ButtonWrapper>
           <Filler />
           <Nav>

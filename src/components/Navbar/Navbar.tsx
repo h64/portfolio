@@ -57,7 +57,7 @@ const DesktopActions = styled.div`
     margin-right: auto;
   }
 
-  @media ${(p) => p.theme.mediaQueries.phoneAndUp} {
+  @media ${(p) => p.theme.mediaQueries.tabletAndUp} {
     display: flex;
   }
 `;
@@ -66,7 +66,7 @@ const MobileActions = styled.div`
   display: flex;
   justify-content: flex-end;
 
-  @media ${(p) => p.theme.mediaQueries.phoneAndUp} {
+  @media ${(p) => p.theme.mediaQueries.tabletAndUp} {
     display: none;
   }
 `;
