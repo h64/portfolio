@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Menu } from "react-feather";
 import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import Logo from "../Logo";
 import MobileNav from "../MobileNav";
