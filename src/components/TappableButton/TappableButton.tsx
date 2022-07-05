@@ -1,5 +1,5 @@
-import { MouseEventHandler } from "react";
 import styled from "styled-components";
+import { MouseEventHandler } from "react";
 import { UnstyledButton } from "../SharedStyles";
 import VisuallyHidden from "../VisuallyHidden";
 
@@ -7,10 +7,23 @@ interface TappableButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
   children: JSX.Element;
   label: string;
+  href?: string;
+  as?: "button" | "a";
 }
 
-const TappableButton = ({ onClick, children, label }: TappableButtonProps) => {
-  return (
+const TappableButton = ({
+  onClick,
+  children,
+  label,
+  href,
+  as = "button",
+}: TappableButtonProps) => {
+  return as === "a" ? (
+    <ButtonWrapper as="a" href={href} target="_blank" rel="noreferrer noopener">
+      <IconWrapper>{children}</IconWrapper>
+      <VisuallyHidden>{label}</VisuallyHidden>
+    </ButtonWrapper>
+  ) : (
     <ButtonWrapper onClick={onClick}>
       <IconWrapper>{children}</IconWrapper>
       <VisuallyHidden>{label}</VisuallyHidden>

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { GitHub, Linkedin, Mail } from "react-feather";
 import styled from "styled-components";
+import AnimatedLink from "../AnimatedLink";
 import MaxWidthWrapper from "../MaxWidthWrapper";
-import { StyledLink } from "../SharedStyles";
 import TappableButton from "../TappableButton";
 
 const messages = [""];
@@ -23,18 +23,26 @@ const HeaderContent = () => {
       <ContactWrapper>
         <div>
           Get in touch 👉{" "}
-          <ExternalLink href={`mailto:${contactMsg}`}>
+          <AnimatedLink href={`mailto:${contactMsg}`}>
             {contactMsg}
-          </ExternalLink>
+          </AnimatedLink>
         </div>
         <ButtonWrapper>
-          <TappableButton label="LinkedIn">
+          <TappableButton
+            as="a"
+            label="LinkedIn"
+            href="https://www.linkedin.com/in/henry-s-hong/"
+          >
             <Linkedin height={32} width={32} />
           </TappableButton>
-          <TappableButton label="Github">
+          <TappableButton
+            as="a"
+            label="Github"
+            href="https://www.github.com/h64/"
+          >
             <GitHub height={32} width={32} />
           </TappableButton>
-          <TappableButton label="Email">
+          <TappableButton as="a" label="Email" href="mailto:henry@hong.dev">
             <Mail height={32} width={32} />
           </TappableButton>
         </ButtonWrapper>
@@ -91,10 +99,6 @@ const ButtonWrapper = styled.div`
   display: flex;
   margin-left: -6px;
   gap: 16px;
-`;
-
-const ExternalLink = styled(StyledLink)`
-  border-bottom: 1px solid var(--color-highlight);
 `;
 
 export default HeaderContent;
