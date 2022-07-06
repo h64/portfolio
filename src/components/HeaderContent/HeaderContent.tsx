@@ -1,14 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GitHub, Linkedin, Mail } from "react-feather";
 import styled from "styled-components";
-import AnimatedLink from "../AnimatedLink";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import TappableButton from "../TappableButton";
-
-const messages = [""];
+import CliDisplay from "./CliDisplay";
 
 const HeaderContent = () => {
-  const [contactMsg, setContactMsg] = useState("henry@hong.dev");
+  const [cliText, setCliText] = useState("henry@hong.dev");
+  const [cliLink, setCliLink] = useState("mailto:henry@hong.dev");
+
+  useEffect(() => {
+    setCliText("henry@hong.dev");
+    setCliLink("mailto:henry@hong.dev");
+  }, []);
 
   return (
     <Wrapper as="header">
@@ -21,30 +25,52 @@ const HeaderContent = () => {
         </SubHeading>
       </GreetingWrapper>
       <ContactWrapper>
-        <div>
-          Get in touch 👉{" "}
-          <AnimatedLink href={`mailto:${contactMsg}`}>
-            {contactMsg}
-          </AnimatedLink>
-        </div>
+        <Row>
+          Get in touch 👉 <CliDisplay cliText={cliText} href={cliLink} />
+        </Row>
         <ButtonWrapper>
-          <TappableButton
-            as="a"
-            label="LinkedIn"
-            href="https://www.linkedin.com/in/henry-s-hong/"
+          <div
+            onMouseEnter={() => {
+              setCliText("linkedin.com/in/henry-s-hong");
+              setCliLink("https://www.linkedin.com/in/henry-s-hong/");
+            }}
           >
-            <Linkedin height={32} width={32} />
-          </TappableButton>
-          <TappableButton
-            as="a"
-            label="Github"
-            href="https://www.github.com/h64/"
+            <TappableButton
+              as="a"
+              label="External link: LinkedIn"
+              href="https://www.linkedin.com/in/henry-s-hong/"
+            >
+              <Linkedin height={32} width={32} />
+            </TappableButton>
+          </div>
+          <div
+            onMouseEnter={() => {
+              setCliText("github.com/h64");
+              setCliLink("https://www.github.com/h64/");
+            }}
           >
-            <GitHub height={32} width={32} />
-          </TappableButton>
-          <TappableButton as="a" label="Email" href="mailto:henry@hong.dev">
-            <Mail height={32} width={32} />
-          </TappableButton>
+            <TappableButton
+              as="a"
+              label="External link: Github"
+              href="https://www.github.com/h64/"
+            >
+              <GitHub height={32} width={32} />
+            </TappableButton>
+          </div>
+          <div
+            onMouseEnter={() => {
+              setCliText("henry@hong.dev");
+              setCliLink("mailto:henry@hong.dev");
+            }}
+          >
+            <TappableButton
+              as="a"
+              label="Open email client"
+              href="mailto:henry@hong.dev"
+            >
+              <Mail height={32} width={32} />
+            </TappableButton>
+          </div>
         </ButtonWrapper>
       </ContactWrapper>
     </Wrapper>
@@ -99,6 +125,13 @@ const ButtonWrapper = styled.div`
   display: flex;
   margin-left: -6px;
   gap: 16px;
+  position: relative;
+`;
+
+const Row = styled.div`
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 `;
 
 export default HeaderContent;

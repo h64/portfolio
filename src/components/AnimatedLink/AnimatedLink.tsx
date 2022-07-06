@@ -43,7 +43,7 @@ const underlineAnimation = css`
   position: relative;
   overflow: hidden;
 
-  &::after {
+  &::before {
     content: "";
     position: absolute;
     border-bottom: 1px solid var(--color-highlight);
@@ -54,7 +54,7 @@ const underlineAnimation = css`
     transition: transform var(--slide-out-speed);
   }
 
-  &:hover::after {
+  &:hover::before {
     transform: translateX(0%);
     transition: transform var(--slide-in-speed);
   }
