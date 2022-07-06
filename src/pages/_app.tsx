@@ -1,14 +1,9 @@
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "styled-components";
-import GlobalStyles from "../components/GlobalStyles";
-import { QUERIES } from "../constants";
+import { GlobalStyles, theme } from "../styles";
 
 // Self-hosted font stylesheet import
 import "/public/fonts/styles.css";
-
-const theme = {
-  mediaQueries: QUERIES,
-};
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

@@ -4,9 +4,9 @@ import { useState } from "react";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import Logo from "../Logo";
 import MobileNav from "../MobileNav";
-import MobileButton from "../TappableButton";
-import AnimatedLink from "../AnimatedLink";
+import { TappableBtn } from "../CommonUI";
 import ThemeToggle from "../ThemeToggle";
+import { Link } from "../CommonUI";
 
 const Navbar = () => {
   let [isOpen, setIsOpen] = useState(false);
@@ -15,28 +15,20 @@ const Navbar = () => {
     <Wrapper as="nav">
       <DesktopActions>
         <Logo href="/" />
-        <AnimatedLink href="#about" type="underline">
-          About
-        </AnimatedLink>
-        <AnimatedLink href="#experience" type="underline">
-          Experience
-        </AnimatedLink>
-        <AnimatedLink href="#featured" type="underline">
-          Featured
-        </AnimatedLink>
-        <AnimatedLink href="#" type="fill">
-          Resume
-        </AnimatedLink>
+        <Link href="#about">About</Link>
+        <Link href="#experience">Experience</Link>
+        <Link href="#featured">Featured</Link>
+        <Link href="#">Resume</Link>
         <ThemeToggle />
       </DesktopActions>
 
       <MobileActions>
-        <MobileButton
+        <TappableBtn
           onClick={() => setIsOpen(true)}
-          label={"Open Mobile Navigation"}
+          aria-label="Open Mobile Navigation"
         >
           <Menu height={32} width={32} />
-        </MobileButton>
+        </TappableBtn>
       </MobileActions>
       <MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />
     </Wrapper>
@@ -44,7 +36,7 @@ const Navbar = () => {
 };
 
 const Wrapper = styled(MaxWidthWrapper)`
-  color: var(--color-headline);
+  color: var(--color-primary);
   padding-top: 24px;
   padding-bottom: 16px;
 

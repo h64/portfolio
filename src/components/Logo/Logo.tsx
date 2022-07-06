@@ -1,5 +1,4 @@
 import styled, { keyframes } from "styled-components";
-import { StyledLink } from "../SharedStyles";
 import VisuallyHidden from "../VisuallyHidden";
 
 const Logo = ({ href }: { href: string }) => {
@@ -27,7 +26,8 @@ const danceAnimation = keyframes`
   }
 `;
 
-const Wrapper = styled(StyledLink)`
+const Wrapper = styled.a`
+  ${({ theme }) => theme.mixins.link};
   position: relative;
   overflow: hidden;
   display: inline-block;

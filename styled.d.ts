@@ -1,13 +1,11 @@
-// import original module declarations
+// https://styled-components.com/docs/api#create-a-declarations-file
 import "styled-components";
+import mixins from "./src/styles/mixins";
+import { mediaQueries } from "./src/styles/theme";
 
-// and extend them!
 declare module "styled-components" {
   export interface DefaultTheme {
-    mediaQueries: {
-      tabletAndUp: string;
-      laptopAndUp: string;
-      desktopAndUp: string;
-    };
+    mediaQueries: typeof mediaQueries;
+    mixins: typeof mixins;
   }
 }

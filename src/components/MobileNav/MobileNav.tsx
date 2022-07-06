@@ -2,10 +2,9 @@ import { Dispatch, SetStateAction, useEffect } from "react";
 import { Dialog } from "@headlessui/react";
 import { X } from "react-feather";
 import styled, { keyframes } from "styled-components";
-import TappableButton from "../TappableButton";
 import useWindowSize, { Size } from "../../hooks/useWindowSize";
-import { BREAKPOINTS } from "../../constants";
-import AnimatedLink from "../AnimatedLink";
+import { theme } from "../../styles";
+import { BtnLink, Link, TappableBtn } from "../CommonUI";
 
 interface AnimatedProps {
   readonly isOpen: boolean;
@@ -21,7 +20,7 @@ const MobileNav = ({
   const size: Size = useWindowSize();
 
   useEffect(() => {
-    if (size.width && size.width > BREAKPOINTS.tablet) {
+    if (size.width && size.width > theme.breakpoints.tablet) {
       setIsOpen(false);
     }
   }, [size.width, setIsOpen]);
@@ -32,35 +31,35 @@ const MobileNav = ({
       <Panel>
         <FadeWrapper isOpen={isOpen}>
           <ButtonWrapper>
-            <TappableButton onClick={() => setIsOpen(false)} label="Close Menu">
+            <TappableBtn
+              onClick={() => setIsOpen(false)}
+              aria-label="Close Menu"
+            >
               <X width={32} height={32} />
-            </TappableButton>
+            </TappableBtn>
           </ButtonWrapper>
           <Filler />
           <Nav>
-            <AnimatedLink type="underline" href="#">
-              About
-            </AnimatedLink>
-            <AnimatedLink type="underline" href="#">
-              Experience
-            </AnimatedLink>
-            <AnimatedLink type="underline" href="#">
-              Featured
-            </AnimatedLink>
-            <AnimatedLink type="fill" href="#">
-              &gt; Resume
-            </AnimatedLink>
+            <Link href="#about">About</Link>
+            <Link href="#experience">Experience</Link>
+            <Link href="#featured">Featured</Link>
+            <BtnLink href="#">&gt; Resume</BtnLink>
           </Nav>
           <Footer>
-            <AnimatedLink type="underline" href="https://www.google.com">
+            <Link
+              href="https://www.linkedin.com/in/henry-s-hong/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               LinkedIn
-            </AnimatedLink>
-            <AnimatedLink type="underline" href="https://www.google.com">
+            </Link>
+            <Link
+              href="https://www.github.com/h64"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Github
-            </AnimatedLink>
-            <AnimatedLink type="underline" href="https://www.google.com">
-              Google
-            </AnimatedLink>
+            </Link>
           </Footer>
         </FadeWrapper>
       </Panel>
@@ -115,7 +114,7 @@ const Panel = styled(Dialog.Panel)`
   display: flex;
   flex-direction: column;
   background-color: var(--color-alt-background);
-  color: var(--color-headline);
+  color: var(--color-primary);
   height: 100%;
   width: calc(300px + var(--overfill));
   margin-right: calc(var(--overfill) * -1);

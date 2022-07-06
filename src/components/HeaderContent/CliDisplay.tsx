@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import useInterval from "../../hooks/useInterval";
-import AnimatedLink from "../AnimatedLink";
+import { Link } from "../CommonUI";
 
 interface CliDisplayProps {
   cliText: string;
@@ -28,9 +28,7 @@ const CliDisplay = ({ cliText, href }: CliDisplayProps) => {
 
   return (
     <>
-      <AnimatedLink type="underline" href={href}>
-        {cliText.substring(0, idx + 1)}
-      </AnimatedLink>
+      <Link href={href}>{cliText.substring(0, idx + 1)}</Link>
       <Cursor />
     </>
   );
@@ -41,7 +39,7 @@ const cursorBlink = keyframes`
     color: transparent;
   }
   50% {
-    color: var(--color-headline);
+    color: var(--color-primary);
   }
 `;
 

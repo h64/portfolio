@@ -18,7 +18,7 @@ const Link = styled.a`
   padding: 8px 16px;
   border-radius: 4px;
   text-decoration: none;
-  color: var(--color-headline);
+  color: var(--color-primary);
   background-color: var(--color-background);
   border: 1px solid var(--color-highlight);
 
