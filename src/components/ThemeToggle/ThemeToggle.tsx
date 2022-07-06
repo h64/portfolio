@@ -6,27 +6,22 @@ import TappableButton from "../TappableButton";
 const ThemeToggle = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   return (
-    <Wrapper>
-      <Sun />
+    <Wrapper label="Dark theme toggle">
       <div
         onClick={() => {
           setIsDarkMode(!isDarkMode);
         }}
       >
         {isDarkMode ? (
-          <TappableButton label="toggle dark theme">
-            <ToggleLeft />
-          </TappableButton>
+          <Sun width={30} height={30} />
         ) : (
-          <ToggleRight />
+          <Moon width={30} height={30} />
         )}
       </div>
-      <Moon />
     </Wrapper>
   );
 };
 
-const Wrapper = styled.div`
-  display: flex;
-`;
+const Wrapper = styled(TappableButton)``;
+
 export default ThemeToggle;

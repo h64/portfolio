@@ -49,26 +49,27 @@ const Wrapper = styled(MaxWidthWrapper)`
   padding-bottom: 16px;
 
   @media ${(p) => p.theme.mediaQueries.tabletAndUp} {
-    padding-top: 36px;
-  }
-  @media ${(p) => p.theme.mediaQueries.laptopAndUp} {
-    padding-top: 48px;
+    /* Fluid padding-top from 36px to 48px at 650px to 950px viewport */
+    padding-top: 2.25rem;
+    padding-top: clamp(2.25rem, 0.625rem + 4vw, 3rem);
   }
 `;
 
 const DesktopActions = styled.div`
   display: none;
   align-items: baseline;
+  /* Fluid gap from 12px to 36px at 650px to 950px viewport */
   gap: 0.75rem;
-  gap: clamp(0.75rem, -1.3928571428571428rem + 5.714285714285714vw, 2rem);
+  gap: clamp(0.75rem, -2.5rem + 8vw, 2.25rem);
   flex: 1;
 
   & a:first-of-type {
-    margin-right: 32px;
+    margin-right: 24px;
   }
 
-  & div:last-of-type {
+  & button:last-of-type {
     margin-left: auto;
+    align-self: center;
   }
 
   @media ${(p) => p.theme.mediaQueries.tabletAndUp} {
