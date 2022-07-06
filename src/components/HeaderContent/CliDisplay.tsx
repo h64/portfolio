@@ -28,9 +28,9 @@ const CliDisplay = ({ cliText, href }: CliDisplayProps) => {
 
   return (
     <>
-      <AnimatedCliLink type="underline" href={href}>
+      <AnimatedLink type="underline" href={href}>
         {cliText.substring(0, idx + 1)}
-      </AnimatedCliLink>
+      </AnimatedLink>
       <Cursor />
     </>
   );
@@ -54,14 +54,6 @@ const Cursor = styled.span`
 
   @media (max-width: 450px) {
     display: none;
-  }
-`;
-
-const AnimatedCliLink = styled(AnimatedLink)`
-  color: blue;
-  &::after {
-    content: "hello world";
-    color: blue !important;
   }
 `;
 
