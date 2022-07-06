@@ -26,10 +26,14 @@ const HeaderContent = () => {
       </GreetingWrapper>
       <ContactWrapper>
         <Row>
-          Get in touch 👉 <CliDisplay cliText={cliText} href={cliLink} />
+          Get in touch
+          <LineWrapper>
+            👉
+            <CliDisplay cliText={cliText} href={cliLink} />
+          </LineWrapper>
         </Row>
         <ButtonWrapper>
-          <div
+          <span
             onMouseEnter={() => {
               setCliText("linkedin.com/in/henry-s-hong");
               setCliLink("https://www.linkedin.com/in/henry-s-hong/");
@@ -42,8 +46,8 @@ const HeaderContent = () => {
             >
               <Linkedin height={32} width={32} />
             </TappableButton>
-          </div>
-          <div
+          </span>
+          <span
             onMouseEnter={() => {
               setCliText("github.com/h64");
               setCliLink("https://www.github.com/h64/");
@@ -56,8 +60,8 @@ const HeaderContent = () => {
             >
               <GitHub height={32} width={32} />
             </TappableButton>
-          </div>
-          <div
+          </span>
+          <span
             onMouseEnter={() => {
               setCliText("henry@hong.dev");
               setCliLink("mailto:henry@hong.dev");
@@ -70,7 +74,7 @@ const HeaderContent = () => {
             >
               <Mail height={32} width={32} />
             </TappableButton>
-          </div>
+          </span>
         </ButtonWrapper>
       </ContactWrapper>
     </Wrapper>
@@ -133,9 +137,21 @@ const Row = styled.div`
   gap: 8px;
   flex-wrap: wrap;
   /* To avoid layout shift on long messages */
-  height: 3.2em;
+  /* height: 3.2em; */
   /* To avoid text overflow on very small screens */
-  overflow: hidden;
+  /* overflow: hidden; */
+`;
+
+const LineWrapper = styled.div`
+  display: flex;
+  gap: 8px;
+  /* overflow: hidden; */
+  /* text-overflow: ellipsis; */
+  /* white-space: nowrap; */
+  /* max-width: 250px; */
+
+  @media ${(p) => p.theme.mediaQueries.tabletAndUp} {
+  }
 `;
 
 export default HeaderContent;

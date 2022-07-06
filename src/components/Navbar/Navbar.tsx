@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { Menu } from "react-feather";
 import { useState } from "react";
-import { AnimatePresence } from "framer-motion";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import Logo from "../Logo";
 import MobileNav from "../MobileNav";
 import MobileButton from "../TappableButton";
 import AnimatedLink from "../AnimatedLink";
+import ThemeToggle from "../ThemeToggle";
 
 const Navbar = () => {
   let [isOpen, setIsOpen] = useState(false);
@@ -27,7 +27,9 @@ const Navbar = () => {
         <AnimatedLink href="#" type="fill">
           Resume
         </AnimatedLink>
+        <ThemeToggle />
       </DesktopActions>
+
       <MobileActions>
         <MobileButton
           onClick={() => setIsOpen(true)}
@@ -45,17 +47,28 @@ const Wrapper = styled(MaxWidthWrapper)`
   color: var(--color-headline);
   padding-top: 24px;
   padding-bottom: 16px;
+
+  @media ${(p) => p.theme.mediaQueries.tabletAndUp} {
+    padding-top: 36px;
+  }
+  @media ${(p) => p.theme.mediaQueries.laptopAndUp} {
+    padding-top: 48px;
+  }
 `;
 
 const DesktopActions = styled.div`
   display: none;
-  justify-content: flex-end;
   align-items: baseline;
-  gap: 24px;
+  gap: 0.75rem;
+  gap: clamp(0.75rem, -1.3928571428571428rem + 5.714285714285714vw, 2rem);
   flex: 1;
 
   & a:first-of-type {
-    margin-right: auto;
+    margin-right: 32px;
+  }
+
+  & div:last-of-type {
+    margin-left: auto;
   }
 
   @media ${(p) => p.theme.mediaQueries.tabletAndUp} {
