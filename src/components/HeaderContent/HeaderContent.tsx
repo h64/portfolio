@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { GitHub, Linkedin, Mail } from "react-feather";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import TappableButton from "../TappableButton";
 import CliDisplay from "./CliDisplay";
@@ -26,11 +26,10 @@ const HeaderContent = () => {
       </GreetingWrapper>
       <ContactWrapper>
         <Row>
-          Get in touch
-          <LineWrapper>
-            👉
-            <CliDisplay cliText={cliText} href={cliLink} />
-          </LineWrapper>
+          <div>Get in touch</div>
+          <InnerRow>
+            <span>👉</span> <CliDisplay cliText={cliText} href={cliLink} />
+          </InnerRow>
         </Row>
         <ButtonWrapper>
           <span
@@ -133,24 +132,31 @@ const ButtonWrapper = styled.div`
 `;
 
 const Row = styled.div`
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  /* To avoid layout shift on long messages */
-  /* height: 3.2em; */
-  /* To avoid text overflow on very small screens */
-  /* overflow: hidden; */
-`;
-
-const LineWrapper = styled.div`
-  display: flex;
-  gap: 8px;
-  /* overflow: hidden; */
-  /* text-overflow: ellipsis; */
-  /* white-space: nowrap; */
-  /* max-width: 250px; */
+  display: block;
 
   @media ${(p) => p.theme.mediaQueries.tabletAndUp} {
+    display: flex;
+    gap: 8px;
+  }
+`;
+
+const pointAnimation = keyframes`
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(4px);
+  }
+`;
+
+const InnerRow = styled.div`
+  display: flex;
+  gap: 8px;
+
+  @media (prefers-reduced-motion: no-preference) {
+    & span:hover {
+      animation: ${pointAnimation} 1000ms infinite alternate ease-in-out;
+    }
   }
 `;
 
