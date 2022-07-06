@@ -132,6 +132,10 @@ const Row = styled.div`
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  /* To avoid layout shift on long messages */
+  height: 3.2em;
+  /* To avoid text overflow on very small screens */
+  overflow: hidden;
 `;
 
 export default HeaderContent;
