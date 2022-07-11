@@ -15,29 +15,29 @@ export const unstyledButton = css`
   }
 
   &:focus {
-    outline: 2px dotted var(--color-highlight);
+    outline: 2px dotted var(--brand);
     outline-width: 2px;
   }
 `;
 
 const button = css`
-  color: var(--color-primary);
+  color: var(--text1);
   padding: 8px 16px;
-  border: 1px solid var(--color-highlight);
+  border: 1px solid var(--brand);
   border-radius: 4px;
   text-decoration: none;
   outline: none;
 
   &:hover,
   &:focus {
-    background-color: var(--color-highlight);
+    background-color: var(--brand);
   }
 `;
 
 const link = css`
   display: inline-block;
   text-decoration: none;
-  color: var(--color-primary);
+  color: var(--text1);
 
   outline-offset: 4px;
   outline-width: 1px;
@@ -49,7 +49,7 @@ const link = css`
   }
 
   &:focus {
-    outline: 2px dotted var(--color-highlight);
+    outline: 2px dotted var(--brand);
     outline-offset: 8px;
     outline-width: 2px;
   }
@@ -58,13 +58,13 @@ const link = css`
 const backgroundFillTransition = css`
   --fade-in-time: 200ms;
   --fade-out-time: 500ms;
-  background-color: var(--color-background);
+  background-color: var(--surface1);
   transition: background-color var(--fade-out-time);
 
   &:hover,
   &:focus {
     transition: background-color var(--fade-in-time);
-    background-color: var(--color-highlight);
+    background-color: var(--brand);
   }
 `;
 
@@ -78,7 +78,7 @@ const underlineSlideInTransition = css`
   &::after {
     content: "";
     position: absolute;
-    border-bottom: 1px solid var(--color-highlight);
+    border-bottom: 1px solid var(--brand);
     left: 0;
     right: 0;
     bottom: 0;

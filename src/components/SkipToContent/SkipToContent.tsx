@@ -18,9 +18,9 @@ const Link = styled.a`
   padding: 8px 16px;
   border-radius: 4px;
   text-decoration: none;
-  color: var(--color-primary);
-  background-color: var(--color-background);
-  border: 1px solid var(--color-highlight);
+  color: var(--brand);
+  background-color: var(--surface1);
+  border: 1px solid var(--brand);
 
   will-change: transform;
   transform: translateX(-100%);
@@ -32,7 +32,7 @@ const Link = styled.a`
   &:focus {
     transform: translateX(0%);
     outline: none;
-    background-color: var(--color-highlight);
+    background-color: var(--brand);
   }
 
   @media (prefers-reduced-motion: no-preference) {

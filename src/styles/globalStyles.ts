@@ -1,16 +1,18 @@
 import { createGlobalStyle } from "styled-components";
+import colors from "./colors";
 import cssReset from "./cssReset";
-import cssVariables from "./cssVariables";
 
 const GlobalStyles = createGlobalStyle`
   ${cssReset};
-  ${cssVariables};
+  ${colors};
 
   /* GLOBAL STYLES */
-  *,
-  *:before,
-  *:after {
+  html {
     box-sizing: border-box;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
   }
 
   img, picture, video, canvas, svg {
@@ -35,38 +37,22 @@ const GlobalStyles = createGlobalStyle`
   } 
 
   html {
-    /* Always show vertical scrollbar - Reduce CLS */
+    /* Always show vertical scrollbar */
     overflow-y: scroll;
-  }
-
-
-
-  body {
-    line-height: 1.5;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* Apply OS color scheme - particularly nice for free navbar styles */
-  :root {
-    color-scheme: light dark;
-    /* accent-color: var(--color-highlight); */
-  }
-
-  /* Increased readability in dark mode
-    https://css-tricks.com/dark-mode-and-variable-fonts/ */
-  @media (prefers-color-scheme: dark) {
-    body {
-      font-weight: 350;
-      /* background-color: var(--color-background); */
-    } 
   }
   
   @media (prefers-reduced-motion: no-preference) {
     html {
       scroll-behavior: smooth;
     }
+  }
+
+  body {
+    line-height: 1.5;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--surface1);
   }
 `;
 

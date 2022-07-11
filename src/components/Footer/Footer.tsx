@@ -13,7 +13,7 @@ const Footer = () => {
 const Wrapper = styled(MaxWidthWrapper)`
   padding-top: 24px;
   padding-bottom: 24px;
-  color: var(--color-paragraph);
+  color: var(--text2);
 `;
 
 export default Footer;

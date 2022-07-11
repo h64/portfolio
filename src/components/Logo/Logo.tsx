@@ -66,8 +66,8 @@ const HoverText = styled(Text)`
   position: absolute;
   top: 0;
   left: 0;
-  color: var(--color-highlight);
-  filter: drop-shadow(0px 0px 2px var(--color-highlight));
+  color: var(--brand);
+  filter: drop-shadow(0px 0px 2px var(--brand));
 
   transform: translateY(100%);
 `;

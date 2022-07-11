@@ -72,7 +72,7 @@ const fadeBackground = keyframes`
     background-color: transparent;
   }
   to {
-    background-color: var(--color-backdrop);
+    background-color: var(--surface4-transparent);
   }
 `;
 
@@ -97,7 +97,7 @@ const fadeIn = keyframes`
 const Backdrop = styled.div`
   position: fixed;
   inset: 0;
-  background-color: var(--color-backdrop);
+  background-color: var(--surface4-transparent);
 
   @media (prefers-reduced-motion: no-preference) {
     animation: ${fadeBackground} 500ms both;
@@ -113,8 +113,8 @@ const Panel = styled(Dialog.Panel)`
 
   display: flex;
   flex-direction: column;
-  background-color: var(--color-alt-background);
-  color: var(--color-primary);
+  background-color: var(--surface1);
+  color: var(--brand);
   height: 100%;
   width: calc(300px + var(--overfill));
   margin-right: calc(var(--overfill) * -1);

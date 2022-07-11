@@ -16,9 +16,12 @@ const Contact = () => {
   return (
     <Wrapper>
       <Row>
-        Get in touch
+        Get in touch!
         <InnerRow>
-          👉 <CliDisplay cliText={cliText} href={cliLink} />
+          <span role="img" aria-label="Finger pointing at link">
+            👉
+          </span>{" "}
+          <CliDisplay cliText={cliText} href={cliLink} />
         </InnerRow>
       </Row>
       <ButtonWrapper>
@@ -64,8 +67,8 @@ const Contact = () => {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  color: var(--color-paragraph);
-  gap: 24px;
+  color: var(--text2);
+  gap: 40px;
   font-size: 1.25rem;
   flex: 1;
 `;
@@ -77,7 +80,7 @@ const ButtonWrapper = styled.div`
   position: relative;
 
   & a:hover {
-    color: var(--color-highlight);
+    color: var(--brand);
   }
 `;
 

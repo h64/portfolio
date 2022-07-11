@@ -39,7 +39,7 @@ const cursorBlink = keyframes`
     color: transparent;
   }
   50% {
-    color: var(--color-primary);
+    color: var(--brand);
   }
 `;
 

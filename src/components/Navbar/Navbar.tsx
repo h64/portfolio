@@ -4,7 +4,7 @@ import { useState } from "react";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import Logo from "../Logo";
 import MobileNav from "../MobileNav";
-import { TappableBtn } from "../CommonUI";
+import { BtnLink, TappableBtn } from "../CommonUI";
 import ThemeToggle from "../ThemeToggle";
 import { Link } from "../CommonUI";
 
@@ -18,7 +18,7 @@ const Navbar = () => {
         <Link href="#about">About</Link>
         <Link href="#experience">Experience</Link>
         <Link href="#featured">Featured</Link>
-        <Link href="#">Resume</Link>
+        <BtnLink href="#">Resume</BtnLink>
         <ThemeToggle />
       </DesktopActions>
 
@@ -36,7 +36,7 @@ const Navbar = () => {
 };
 
 const Wrapper = styled(MaxWidthWrapper)`
-  color: var(--color-primary);
+  color: var(--brand);
   padding-top: 24px;
   padding-bottom: 16px;
 

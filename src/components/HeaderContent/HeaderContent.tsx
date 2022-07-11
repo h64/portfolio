@@ -6,11 +6,19 @@ const HeaderContent = () => {
   return (
     <Wrapper as="header">
       <GreetingWrapper>
-        <Greeting id="top">Hello World! 👋</Greeting>
+        <Greeting id="top">
+          Hello World!{" "}
+          <span role="img" aria-label="Waving hand">
+            👋
+          </span>
+        </Greeting>
         <Headline>I&apos;m Henry Hong.</Headline>
         <SubHeading>
           I&apos;m a software engineer specialized in building things for the
-          web. 👨🏻‍💻
+          web.{" "}
+          <span role="img" aria-label="Programmer emoji">
+            👨🏻‍💻
+          </span>
         </SubHeading>
       </GreetingWrapper>
       <Contact />
@@ -24,7 +32,7 @@ const Button = styled.button`
 const Wrapper = styled(MaxWidthWrapper)`
   min-height: calc(100% - 80px);
   min-width: min-content;
-  color: var(--color-paragraph);
+  color: var(--text2);
   display: flex;
   flex-direction: column;
 `;
@@ -33,11 +41,11 @@ const Greeting = styled.div`
   margin-top: auto;
   font-size: 1.5rem;
   font-size: clamp(1.5rem, 1.222rem + 1.389vw, 2rem);
-  color: var(--color-tertiary);
+  color: var(--text2);
 `;
 
 const Headline = styled.h1`
-  color: var(--color-primary);
+  color: var(--brand);
   font-size: 2rem;
   font-size: clamp(2rem, 1.167rem + 4.167vw, 3.5rem);
 

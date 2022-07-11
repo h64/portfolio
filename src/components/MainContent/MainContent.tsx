@@ -137,7 +137,7 @@ const MainContent = () => {
 const Wrapper = styled(MaxWidthWrapper)`
   padding-top: 96px;
   padding-bottom: 96px;
-  color: var(--color-paragraph);
+  color: var(--text2);
 `;
 
 export default MainContent;

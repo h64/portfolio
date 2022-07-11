@@ -8,8 +8,8 @@ import "/public/fonts/styles.css";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <GlobalStyles />
       <ThemeProvider theme={theme}>
+        <GlobalStyles />
         <Component {...pageProps} />
       </ThemeProvider>
     </>
