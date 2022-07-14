@@ -21,20 +21,25 @@ const HeaderContent = () => {
           </span>
         </SubHeading>
       </GreetingWrapper>
-      <Contact />
+      <ContactWrapper>
+        <Contact />
+      </ContactWrapper>
     </Wrapper>
   );
 };
-const Button = styled.button`
-  ${({ theme }) => theme.mixins.button};
-  ${(p) => p.theme.mixins.underlineSlideInTransition};
-`;
+
 const Wrapper = styled(MaxWidthWrapper)`
-  min-height: calc(100% - 80px);
+  min-height: calc(100% - 100px);
   min-width: min-content;
   color: var(--text2);
   display: flex;
   flex-direction: column;
+
+  --slide-duration: 500ms;
+  --slide-delay-offset: 0ms;
+  @media ${({ theme }) => theme.mediaQueries.tabletAndUp} {
+    --slide-delay-offset: 500ms;
+  }
 `;
 
 const Greeting = styled.div`
@@ -42,6 +47,9 @@ const Greeting = styled.div`
   font-size: 1.5rem;
   font-size: clamp(1.5rem, 1.222rem + 1.389vw, 2rem);
   color: var(--text2);
+
+  --slide-delay: calc(500ms + var(--slide-delay-offset));
+  ${({ theme }) => theme.mixins.slideUpAnimation};
 `;
 
 const Headline = styled.h1`
@@ -51,11 +59,17 @@ const Headline = styled.h1`
 
   font-weight: 800;
   padding-bottom: 32px;
+
+  --slide-delay: calc(700ms + var(--slide-delay-offset));
+  ${({ theme }) => theme.mixins.slideUpAnimation};
 `;
 
 const SubHeading = styled.h2`
   font-size: 1.25rem;
   margin-bottom: auto;
+
+  --slide-delay: calc(900ms + var(--slide-delay-offset));
+  ${({ theme }) => theme.mixins.slideUpAnimation};
 `;
 
 const GreetingWrapper = styled.div`
@@ -64,8 +78,13 @@ const GreetingWrapper = styled.div`
   flex-direction: column;
 `;
 
-const SocialIcon = styled.a`
-  ${({ theme }) => theme.mixins.unstyledButton};
+const ContactWrapper = styled.div`
+  flex: 1;
+
+  & > * {
+    --slide-delay: calc(1100ms + var(--slide-delay-offset));
+    ${({ theme }) => theme.mixins.slideUpAnimation};
+  }
 `;
 
 export default HeaderContent;

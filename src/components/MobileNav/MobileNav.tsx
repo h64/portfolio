@@ -40,9 +40,15 @@ const MobileNav = ({
           </ButtonWrapper>
           <Filler />
           <Nav>
-            <Link href="#about">About</Link>
-            <Link href="#experience">Experience</Link>
-            <Link href="#featured">Featured</Link>
+            <Link onClick={() => setIsOpen(false)} href="#about">
+              About
+            </Link>
+            <Link onClick={() => setIsOpen(false)} href="#experience">
+              Experience
+            </Link>
+            <Link onClick={() => setIsOpen(false)} href="#featured">
+              Featured
+            </Link>
             <BtnLink href="#">&gt; Resume</BtnLink>
           </Nav>
           <Footer>

@@ -70,7 +70,6 @@ const Wrapper = styled.div`
   color: var(--text2);
   gap: 40px;
   font-size: 1.25rem;
-  flex: 1;
 `;
 
 const ButtonWrapper = styled.div`

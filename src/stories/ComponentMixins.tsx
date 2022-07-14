@@ -8,6 +8,7 @@ const Transitions = () => {
       <Link href="#">Link</Link>
       <UnderlineLink href="#">Link with underline transition</UnderlineLink>
       <UnstyledButton>Unstyled button</UnstyledButton>
+      <SlideDownBtn>Button that slides down</SlideDownBtn>
     </Wrapper>
   );
 };
@@ -32,6 +33,13 @@ const UnderlineLink = styled.a`
 
 const UnstyledButton = styled.button`
   ${({ theme }) => theme.mixins.unstyledButton}
+`;
+
+const SlideDownBtn = styled.a`
+  --slide-duration: 500ms;
+  --slide-delay: 300ms;
+  ${({ theme }) => theme.mixins.button}
+  ${({ theme }) => theme.mixins.slideDownAnimation}
 `;
 
 const Wrapper = styled.div`

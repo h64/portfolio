@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css, keyframes } from "styled-components";
 
 export const unstyledButton = css`
   display: block;
@@ -99,6 +99,63 @@ const tappableArea = css`
   place-content: center;
 `;
 
+const slideDown = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+`;
+
+const slideUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+`;
+
+export const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const slideDownAnimation = css`
+  @media (prefers-reduced-motion: no-preference) {
+    animation: ${slideDown};
+    animation-duration: var(--slide-duration);
+    animation-delay: var(--slide-delay);
+    animation-fill-mode: both;
+    animation-timing-function: ease-out;
+  }
+`;
+
+const slideUpAnimation = css`
+  @media (prefers-reduced-motion: no-preference) {
+    animation: ${slideUp};
+    animation-duration: var(--slide-duration);
+    animation-delay: var(--slide-delay);
+    animation-fill-mode: both;
+    animation-timing-function: ease-out;
+  }
+`;
+
+const fadeInAnimation = css`
+  animation: ${fadeIn};
+  animation-duration: var(--fade-duration);
+  animation-delay: var(--fade-delay);
+`;
+
 const mixins = {
   button,
   unstyledButton,
@@ -106,6 +163,9 @@ const mixins = {
   backgroundFillTransition,
   underlineSlideInTransition,
   tappableArea,
+  slideDownAnimation,
+  fadeInAnimation,
+  slideUpAnimation,
 };
 
 export default mixins;

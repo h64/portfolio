@@ -5,7 +5,6 @@ import MaxWidthWrapper from "../MaxWidthWrapper";
 import Logo from "../Logo";
 import MobileNav from "../MobileNav";
 import { BtnLink, TappableBtn } from "../CommonUI";
-import ThemeToggle from "../ThemeToggle";
 import { Link } from "../CommonUI";
 
 const Navbar = () => {
@@ -14,12 +13,13 @@ const Navbar = () => {
   return (
     <Wrapper as="nav">
       <DesktopActions>
-        <Logo href="/" />
+        <FadeWrapper>
+          <Logo href="/" />
+        </FadeWrapper>
         <Link href="#about">About</Link>
         <Link href="#experience">Experience</Link>
         <Link href="#featured">Featured</Link>
         <BtnLink href="#">Resume</BtnLink>
-        <ThemeToggle />
       </DesktopActions>
 
       <MobileActions>
@@ -55,13 +55,27 @@ const DesktopActions = styled.div`
   gap: clamp(0.75rem, -2.5rem + 8vw, 2.25rem);
   flex: 1;
 
-  & a:first-of-type {
-    margin-right: 24px;
+  --slide-duration: 500ms;
+
+  & > div:first-of-type {
+    margin-right: auto;
   }
 
-  & button:last-of-type {
-    margin-left: auto;
-    align-self: center;
+  & > a:nth-child(2) {
+    --slide-delay: 200ms;
+    ${({ theme }) => theme.mixins.slideDownAnimation};
+  }
+  & > a:nth-child(3) {
+    --slide-delay: 300ms;
+    ${({ theme }) => theme.mixins.slideDownAnimation};
+  }
+  & > a:nth-child(4) {
+    --slide-delay: 400ms;
+    ${({ theme }) => theme.mixins.slideDownAnimation};
+  }
+  & > a:nth-child(5) {
+    --slide-delay: 500ms;
+    ${({ theme }) => theme.mixins.slideDownAnimation};
   }
 
   @media ${(p) => p.theme.mediaQueries.tabletAndUp} {
@@ -76,6 +90,11 @@ const MobileActions = styled.div`
   @media ${(p) => p.theme.mediaQueries.tabletAndUp} {
     display: none;
   }
+`;
+
+const FadeWrapper = styled.div`
+  --fade-duration: 1000ms;
+  ${({ theme }) => theme.mixins.fadeInAnimation};
 `;
 
 export default Navbar;
