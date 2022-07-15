@@ -10,7 +10,7 @@ const colors = css`
 
     --brand: hsl(
       var(--brand-hue) calc(var(--brand-saturation) / 1.25)
-        calc(var(--brand-lightness) / 1.25)
+        calc(var(--brand-lightness) / 1.15)
     );
     --text1: hsl(var(--brand-hue) 10% 95%);
     --text2: hsl(var(--brand-hue) 20% 70%);
