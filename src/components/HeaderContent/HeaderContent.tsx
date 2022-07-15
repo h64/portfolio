@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import Contact from "./Contact";
 
@@ -8,9 +8,11 @@ const HeaderContent = () => {
       <GreetingWrapper>
         <Greeting id="top">
           Hello World!{" "}
-          <span role="img" aria-label="Waving hand">
-            👋
-          </span>
+          <WaveWrapper>
+            <WavingHand role="img" aria-label="Waving hand">
+              👋
+            </WavingHand>
+          </WaveWrapper>
         </Greeting>
         <Headline>I&apos;m Henry Hong.</Headline>
         <SubHeading>
@@ -84,6 +86,31 @@ const ContactWrapper = styled.div`
   & > * {
     --slide-delay: calc(1200ms + var(--slide-delay-offset));
     ${({ theme }) => theme.mixins.slideUpAnimation};
+  }
+`;
+
+const wave = keyframes`
+  0% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+`;
+
+const WavingHand = styled.span`
+  display: inline-block;
+  transform-origin: 75% 80%;
+`;
+
+const WaveWrapper = styled.span`
+  @media (prefers-reduced-motion: no-preference) {
+    &:hover ${WavingHand} {
+      animation: ${wave} 400ms ease-in-out;
+    }
   }
 `;
 

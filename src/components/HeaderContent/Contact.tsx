@@ -110,7 +110,7 @@ const InnerRow = styled.div`
 
   @media (prefers-reduced-motion: no-preference) {
     &:hover span {
-      animation: ${pointAnimation} 800ms infinite alternate ease;
+      animation: ${pointAnimation} 700ms infinite alternate ease;
     }
   }
 `;
