@@ -109,8 +109,8 @@ const InnerRow = styled.div`
   gap: 8px;
 
   @media (prefers-reduced-motion: no-preference) {
-    & span:hover {
-      animation: ${pointAnimation} 1000ms infinite alternate ease-in-out;
+    &:hover span {
+      animation: ${pointAnimation} 800ms infinite alternate ease;
     }
   }
 `;

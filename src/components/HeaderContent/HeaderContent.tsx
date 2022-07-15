@@ -82,7 +82,7 @@ const ContactWrapper = styled.div`
   flex: 1;
 
   & > * {
-    --slide-delay: calc(1100ms + var(--slide-delay-offset));
+    --slide-delay: calc(1200ms + var(--slide-delay-offset));
     ${({ theme }) => theme.mixins.slideUpAnimation};
   }
 `;
