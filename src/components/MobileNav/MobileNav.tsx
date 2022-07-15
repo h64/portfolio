@@ -145,12 +145,6 @@ const FadeWrapper = styled.div<AnimatedProps>`
   }
 `;
 
-const InnerWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-`;
-
 const ButtonWrapper = styled.div`
   position: absolute;
   top: 24px;

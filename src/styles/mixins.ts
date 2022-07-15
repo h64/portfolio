@@ -9,6 +9,9 @@ export const unstyledButton = css`
   cursor: pointer;
   color: inherit;
 
+  outline-offset: 2px;
+  transition: outline-offset 200ms, outline-width 200ms;
+
   /* No outline on click */
   &:focus:not(:focus-visible) {
     outline: none;
@@ -17,6 +20,7 @@ export const unstyledButton = css`
   &:focus {
     outline: 2px dotted var(--brand);
     outline-width: 2px;
+    outline-offset: 4px;
   }
 `;
 
