@@ -30,6 +30,7 @@ const Contact = () => {
           href="https://www.linkedin.com/in/henry-s-hong/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="LinkedIn"
           onMouseEnter={() => {
             setCliText("linkedin.com/in/henry-s-hong");
             setCliLink("https://www.linkedin.com/in/henry-s-hong/");
@@ -42,6 +43,7 @@ const Contact = () => {
           href="https://www.github.com/h64/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Github"
           onMouseEnter={() => {
             setCliText("github.com/h64");
             setCliLink("https://www.github.com/h64/");
@@ -52,6 +54,7 @@ const Contact = () => {
         <TappableBtn
           as={"a"}
           href="mailto:henry@hong.dev"
+          aria-label="Email henry@hong.dev"
           onMouseEnter={() => {
             setCliText("henry@hong.dev");
             setCliLink("mailto:henry@hong.dev");
