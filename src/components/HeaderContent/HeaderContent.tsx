@@ -16,8 +16,8 @@ const HeaderContent = () => {
         </Greeting>
         <Headline>I&apos;m Henry Hong.</Headline>
         <SubHeading>
-          I&apos;m a software engineer specialized in building things for the
-          web.{" "}
+          I&apos;m a software engineer who specializes in building things for
+          the web.{" "}
           <span role="img" aria-label="Programmer emoji">
             👨🏻‍💻
           </span>
@@ -83,7 +83,7 @@ const GreetingWrapper = styled.div`
 const ContactWrapper = styled.div`
   flex: 1;
 
-  & > * {
+  & > div {
     --slide-delay: calc(1200ms + var(--slide-delay-offset));
     ${({ theme }) => theme.mixins.slideUpAnimation};
   }
@@ -104,6 +104,7 @@ const wave = keyframes`
 const WavingHand = styled.span`
   display: inline-block;
   transform-origin: 75% 80%;
+  will-change: transform;
 `;
 
 const WaveWrapper = styled.span`

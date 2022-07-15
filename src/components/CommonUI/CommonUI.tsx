@@ -11,6 +11,6 @@ export const Link = styled.a`
 `;
 
 export const TappableBtn = styled.button`
-  ${({ theme }) => theme.mixins.unstyledButton};
+  ${({ theme }) => theme.mixins.unstyledButton}
   ${({ theme }) => theme.mixins.tappableArea}
 `;

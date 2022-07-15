@@ -18,7 +18,7 @@ const Link = styled.a`
   padding: 8px 16px;
   border-radius: 4px;
   text-decoration: none;
-  color: var(--brand);
+  color: var(--text1);
   background-color: var(--surface1);
   border: 1px solid var(--brand);
 
