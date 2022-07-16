@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
-import useInterval from "../../hooks/useInterval";
-import { Link } from "../CommonUI";
+import useInterval from "../../../hooks/useInterval";
+import { Link } from "../../CommonUI";
 
 interface CliDisplayProps {
   cliText: string;

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { GitHub, Linkedin, Mail } from "react-feather";
 import CliDisplay from "./CliDisplay";
-import { TappableBtn } from "../CommonUI";
+import { TappableBtn } from "../../CommonUI";
 
 const Contact = () => {
   const [cliText, setCliText] = useState("henry@hong.dev");
@@ -109,7 +109,7 @@ const InnerRow = styled.div`
   gap: 8px;
 
   @media (prefers-reduced-motion: no-preference) {
-    &:hover span {
+    &:hover span[role="img"] {
       animation: ${pointAnimation} 700ms infinite alternate ease;
     }
   }

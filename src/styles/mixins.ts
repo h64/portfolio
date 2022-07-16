@@ -125,7 +125,7 @@ const slideUp = keyframes`
   }
 `;
 
-export const fadeIn = keyframes`
+const fadeIn = keyframes`
   from {
     opacity: 0.1;
   }

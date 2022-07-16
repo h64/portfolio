@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import MaxWidthWrapper from "../MaxWidthWrapper";
+import MaxWidthWrapper from "../../MaxWidthWrapper";
 import Contact from "./Contact";
 
 const HeaderContent = () => {
@@ -91,7 +91,7 @@ const ContactWrapper = styled.div`
 
 const wave = keyframes`
   0% {
-    transform: rotate(-10deg);
+    transform: rotate(-20deg);
   }
   50% {
     transform: rotate(10deg);

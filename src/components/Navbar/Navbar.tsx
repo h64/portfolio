@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Menu } from "react-feather";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import Logo from "../Logo";
 import MobileNav from "../MobileNav";
@@ -9,6 +9,11 @@ import { Link } from "../CommonUI";
 
 const Navbar = () => {
   let [isOpen, setIsOpen] = useState(false);
+  let [isJsEnhanced, setIsJsEnhanced] = useState(false);
+
+  useEffect(() => {
+    setIsJsEnhanced(true);
+  }, []);
 
   return (
     <Wrapper as="nav">
@@ -23,12 +28,25 @@ const Navbar = () => {
       </DesktopActions>
 
       <MobileActions>
-        <TappableBtn
-          onClick={() => setIsOpen(true)}
-          aria-label="Open Mobile Navigation"
-        >
-          <Menu height={32} width={32} />
-        </TappableBtn>
+        {isJsEnhanced && (
+          <TappableBtn
+            onClick={() => setIsOpen(true)}
+            aria-label="Open Mobile Navigation"
+          >
+            <Menu height={32} width={32} />
+          </TappableBtn>
+        )}
+        <noscript>
+          <FallbackMobileMenu aria-label="Open Mobile Navigation">
+            <Menu height={32} width={32} />
+            <FallbackNav>
+              <FallbackNavLink href="#about">About</FallbackNavLink>
+              <FallbackNavLink href="#experience">Experience</FallbackNavLink>
+              <FallbackNavLink href="#featured">Featured</FallbackNavLink>
+              <FallbackNavLink href="#">Resume</FallbackNavLink>
+            </FallbackNav>
+          </FallbackMobileMenu>
+        </noscript>
       </MobileActions>
       <MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />
     </Wrapper>
@@ -93,8 +111,49 @@ const MobileActions = styled.div`
 `;
 
 const FadeWrapper = styled.div`
-  --fade-duration: 1000ms;
+  --fade-duration: 1500ms;
   ${({ theme }) => theme.mixins.fadeInAnimation};
+`;
+
+const FallbackNav = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface2);
+  text-align: center;
+  padding: 16px;
+  position: absolute;
+  border-radius: 4px;
+
+  top: 44px;
+  right: 0;
+  visibility: hidden;
+
+  & a:not(:last-child) {
+    border-bottom: 1px solid var(--brand);
+    padding-bottom: 8px;
+  }
+  & a:not(:first-child) {
+    padding-top: 8px;
+  }
+`;
+
+const FallbackNavLink = styled.a`
+  ${({ theme }) => theme.mixins.link};
+
+  &:hover {
+    color: var(--brand);
+  }
+`;
+
+const FallbackMobileMenu = styled(TappableBtn)`
+  position: relative;
+  z-index: 1;
+
+  &:focus ${FallbackNav}, &:hover ${FallbackNav} {
+    visibility: visible;
+    --fade-duration: 500ms;
+    ${({ theme }) => theme.mixins.fadeInAnimation}
+  }
 `;
 
 export default Navbar;
