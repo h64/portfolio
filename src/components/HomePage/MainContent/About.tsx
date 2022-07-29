@@ -1,38 +1,45 @@
+import Image from "next/image";
 import styled from "styled-components";
+import { Header } from "../../CommonUI/CommonUI";
 import ScrollReveal from "../../ScrollReveal";
 
 const About = () => {
   return (
     <Wrapper>
       <ScrollReveal>
-        <SectionHeader id="about">About</SectionHeader>
-        <p>
-          Hi! My name is Henry and since childhood I&apos;ve been thoroughly
-          fascinated by computers.
-        </p>
-        <p>Some of my most proudest achievements include:</p>
-        <br />
-        <ul>
-          <li>
-            <span>
-              Blue screening<span>*</span>
-            </span>{" "}
-            my first computer at the age of four.
-            <span>Percussive maintenance did not help!</span>
-          </li>
-          <br />
+        <Header id="about">About</Header>
+        <div>
+          <p>
+            Hi! My name is Henry and since childhood I&apos;ve been thoroughly
+            fascinated by computers.
+          </p>
 
-          <li>
-            Surviving and graduating from the <b>University of Washington.</b>
-          </li>
+          <p>Some of my most proudest achievements include:</p>
           <br />
+          <ul>
+            <li>
+              <span>
+                Blue screening<span>*</span>
+              </span>{" "}
+              my first computer at the age of four.
+              <span>Percussive maintenance did not help!</span>
+            </li>
+            <br />
 
-          <li>
-            Sharing the love of code to over a hundred students at{" "}
-            <b>General Assembly</b>.
-          </li>
-        </ul>
-        <br />
+            <li>
+              Surviving and graduating from the <b>University of Washington.</b>
+            </li>
+            <br />
+
+            <li>
+              Sharing the love of code to over a hundred students at{" "}
+              <b>General Assembly</b>.
+            </li>
+          </ul>
+        </div>
+        <ImgWrapper>
+          <Image src={"/profile.jpg"} alt="Headshot" width={256} height={256} />
+        </ImgWrapper>
       </ScrollReveal>
       <ScrollReveal>
         <p>
@@ -60,11 +67,42 @@ const About = () => {
 
 const Wrapper = styled.section``;
 
-const SectionHeader = styled.h2`
-  color: var(--text1);
-  font-size: 1.75rem;
-  font-weight: 700;
-  margin-bottom: 40px;
+const ImgWrapper = styled.div`
+  position: relative;
+  width: 256px;
+  background-color: var(--brand);
+  line-height: 0;
+  transition: background-color 400ms;
+  margin-bottom: 24px;
+  margin-top: 24px;
+
+  & img {
+    mix-blend-mode: hard-light;
+    transition: filter 400ms;
+    filter: grayscale(100%);
+    z-index: 1;
+  }
+
+  &:hover img {
+    transition: filter 200ms, background-color 200ms;
+    filter: none;
+  }
+  &:hover {
+    transition: background-color 200ms;
+    background-color: transparent;
+  }
+
+  ::after {
+    position: absolute;
+    content: "";
+    border: 1px solid blue;
+    top: 20px;
+    left: 20px;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: transparent;
+  }
 `;
 
 export default About;

@@ -14,3 +14,11 @@ export const TappableBtn = styled.button`
   ${({ theme }) => theme.mixins.unstyledButton}
   ${({ theme }) => theme.mixins.tappableArea}
 `;
+
+export const Header = styled.h2`
+  color: var(--brand);
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+`;
