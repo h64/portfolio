@@ -18,7 +18,7 @@ function ScrollReveal({ children }: { children: ReactNode }) {
 
 const slideUp = keyframes`
   from {
-    opacity: 0.01;
+    opacity: 0.001;
     transform: translateY(48px);
   }
   to {

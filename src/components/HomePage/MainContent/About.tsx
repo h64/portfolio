@@ -1,11 +1,11 @@
 import Image from "next/image";
 import styled from "styled-components";
-import { Header } from "../../CommonUI/CommonUI";
+import { Header } from "../../CommonUI";
 import ScrollReveal from "../../ScrollReveal";
 
 const About = () => {
   return (
-    <Wrapper>
+    <section>
       <ScrollReveal>
         <Header id="about">About</Header>
         <div>
@@ -61,47 +61,45 @@ const About = () => {
           <li>Storybook</li>
         </ul>
       </ScrollReveal>
-    </Wrapper>
+    </section>
   );
 };
-
-const Wrapper = styled.section``;
 
 const ImgWrapper = styled.div`
   position: relative;
   width: 256px;
-  background-color: var(--brand);
   line-height: 0;
-  transition: background-color 400ms;
   margin-bottom: 24px;
   margin-top: 24px;
+  border-radius: 8px;
+  background-color: var(--brand);
 
   & img {
     mix-blend-mode: hard-light;
-    transition: filter 400ms;
-    filter: grayscale(100%);
     z-index: 1;
+    border-radius: 8px;
   }
 
   &:hover img {
-    transition: filter 200ms, background-color 200ms;
-    filter: none;
-  }
-  &:hover {
-    transition: background-color 200ms;
-    background-color: transparent;
+    mix-blend-mode: unset;
   }
 
   ::after {
     position: absolute;
     content: "";
-    border: 1px solid blue;
-    top: 20px;
-    left: 20px;
+    border: 1px solid var(--brand);
+    top: 16px;
+    left: 16px;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    background-color: transparent;
+    border-radius: 8px;
+    transition: top 400ms, left 400ms;
+  }
+
+  &:hover::after {
+    transition: top 200ms, left 200ms;
+    top: 12px;
+    left: 12px;
   }
 `;
 

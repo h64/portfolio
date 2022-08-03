@@ -1,1 +1,1 @@
-export { BtnLink, Link, TappableBtn } from "./CommonUI";
+export { BtnLink, Link, TappableBtn, Header } from "./CommonUI";

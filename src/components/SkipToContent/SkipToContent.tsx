@@ -23,7 +23,7 @@ const Link = styled.a`
   border: 1px solid var(--brand);
 
   will-change: transform;
-  transform: translateX(-100%);
+  transform: translateX(-105%);
   transition: background-color var(--fade-in-time),
     transform var(--slide-out-speed);
 

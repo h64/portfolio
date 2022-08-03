@@ -1,33 +1,14 @@
 import styled from "styled-components";
+import { Header } from "../../CommonUI";
 import MaxWidthWrapper from "../../MaxWidthWrapper";
 import About from "./About";
+import Experience from "./Experience";
 
 const MainContent = () => {
   return (
     <Wrapper as="main">
       <About />
-      <section>
-        <h2 id="experience">Experience</h2>
-        <div>
-          <div>
-            <h3>General Assembly</h3>
-            <div>Jul 2019 - Mar 2022</div>
-            <div>Sr. Instructional Associate</div>
-          </div>
-          <div>
-            <h3>425 Fitness</h3>
-            <div>May 2016 - Apr 2021</div>
-            <div>Technical Operations Specialist</div>
-          </div>
-          <div>
-            <h3>University of Washington, Bothell</h3>
-            <div>Winter 2019</div>
-            <div>
-              Bachelor of Science in Computer Science &#38; Software Engineering
-            </div>
-          </div>
-        </div>
-      </section>
+      <Experience />
       <section>
         <h2 id="featured">Featured Posts</h2>
       </section>

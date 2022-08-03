@@ -116,7 +116,7 @@ const slideDown = keyframes`
 
 const slideUp = keyframes`
   from {
-    opacity: 0.01;
+    opacity: 0.001;
     transform: translateY(100%);
   }
   to {
@@ -127,7 +127,7 @@ const slideUp = keyframes`
 
 const fadeIn = keyframes`
   from {
-    opacity: 0.1;
+    opacity: 0.001;
   }
   to {
     opacity: 1;
