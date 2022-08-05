@@ -5,10 +5,11 @@ import ScrollReveal from "../../ScrollReveal";
 
 const About = () => {
   return (
-    <section>
-      <ScrollReveal>
-        <Header id="about">About</Header>
-        <div>
+    <ScrollReveal>
+      <Header id="about">About</Header>
+
+      <Flex>
+        <AboutText>
           <p>
             Hi! My name is Henry and since childhood I&apos;ve been thoroughly
             fascinated by computers.
@@ -36,12 +37,19 @@ const About = () => {
               <b>General Assembly</b>.
             </li>
           </ul>
-        </div>
+        </AboutText>
+
         <ImgWrapper>
-          <Image src={"/profile.jpg"} alt="Headshot" width={256} height={256} />
+          <Image
+            src={"/profile.jpg"}
+            alt="Headshot"
+            layout="responsive"
+            width={256}
+            height={256}
+          />
         </ImgWrapper>
-      </ScrollReveal>
-      <ScrollReveal>
+      </Flex>
+      <div>
         <p>
           As a software engineer, I enjoy learning new techniques to build
           accessible, scalable, and maintainable products. My goal is to
@@ -60,19 +68,23 @@ const About = () => {
           <li>Styled Components</li>
           <li>Storybook</li>
         </ul>
-      </ScrollReveal>
-    </section>
+      </div>
+    </ScrollReveal>
   );
 };
 
 const ImgWrapper = styled.div`
+  display: inline-block;
   position: relative;
-  width: 256px;
+  min-width: 192px;
+  max-width: 256px;
+  aspect-ratio: 1 / 1;
+  height: 100%;
   line-height: 0;
-  margin-bottom: 24px;
-  margin-top: 24px;
   border-radius: 8px;
   background-color: var(--brand);
+  flex: 1;
+  align-self: center;
 
   & img {
     mix-blend-mode: hard-light;
@@ -85,6 +97,7 @@ const ImgWrapper = styled.div`
   }
 
   ::after {
+    pointer-events: none;
     position: absolute;
     content: "";
     border: 1px solid var(--brand);
@@ -100,6 +113,33 @@ const ImgWrapper = styled.div`
     transition: top 200ms, left 200ms;
     top: 12px;
     left: 12px;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.tabletAndUp} {
+    align-self: flex-start;
+  }
+`;
+
+const AboutText = styled.div`
+  max-width: 60ch;
+  margin-bottom: 16px;
+  flex: 2;
+
+  @media ${({ theme }) => theme.mediaQueries.tabletAndUp} {
+    margin-bottom: 40px;
+  }
+`;
+
+const Flex = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 36px;
+
+  @media ${({ theme }) => theme.mediaQueries.tabletAndUp} {
+    flex-direction: row;
+    /* gap: 48px; */
   }
 `;
 

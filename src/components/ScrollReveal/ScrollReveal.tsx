@@ -2,10 +2,15 @@ import { ReactNode, useRef } from "react";
 import styled, { keyframes } from "styled-components";
 import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 
-function ScrollReveal({ children }: { children: ReactNode }) {
+interface ScrollRevealProps {
+  children: ReactNode;
+}
+
+function ScrollReveal({ children }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(ref, {
     freezeOnceVisible: true,
+    rootMargin: "-5%",
   });
   const isVisible = !!entry?.isIntersecting;
 
@@ -18,7 +23,7 @@ function ScrollReveal({ children }: { children: ReactNode }) {
 
 const slideUp = keyframes`
   from {
-    opacity: 0.001;
+    opacity: 0;
     transform: translateY(48px);
   }
   to {
@@ -27,13 +32,15 @@ const slideUp = keyframes`
   }
 `;
 
-const RevealWrapper = styled.div<{ isVisible: boolean }>`
+const RevealWrapper = styled.section<{ isVisible: boolean }>`
+  opacity: 0; /* Prevents flash of text before the animation triggers */
+
   @media (prefers-reduced-motion: no-preference) {
     animation: ${({ isVisible }) => (isVisible ? slideUp : null)};
-    animation-duration: 800ms;
+    animation-duration: 1000ms;
     animation-delay: 300ms;
     animation-fill-mode: both;
-    animation-timing-function: ease-out;
+    animation-timing-function: cubic-bezier(0.39, 0.58, 0.57, 1);
   }
 `;
 

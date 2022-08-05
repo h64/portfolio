@@ -150,7 +150,7 @@ const slideUpAnimation = css`
     animation-duration: var(--slide-duration);
     animation-delay: var(--slide-delay);
     animation-fill-mode: both;
-    animation-timing-function: ease-out;
+    animation-timing-function: cubic-bezier(0.39, 0.58, 0.57, 1);
   }
 `;
 

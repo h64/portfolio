@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Header } from "../../CommonUI";
 import MaxWidthWrapper from "../../MaxWidthWrapper";
+import ScrollReveal from "../../ScrollReveal";
 import About from "./About";
 import Experience from "./Experience";
 
@@ -9,11 +10,10 @@ const MainContent = () => {
     <Wrapper as="main">
       <About />
       <Experience />
-      <section>
-        <h2 id="featured">Featured Posts</h2>
-      </section>
-      <section>
-        <h2>Miscellaneous</h2>
+      <ScrollReveal>
+        <Header id="featured">Featured</Header>
+      </ScrollReveal>
+      <ScrollReveal>
         <div>
           <h3>Homework Cloner ➡</h3>
           <p>
@@ -70,14 +70,14 @@ const MainContent = () => {
             <li>Assembly</li>
           </ul>
         </div>
-      </section>
+      </ScrollReveal>
     </Wrapper>
   );
 };
 
 const Wrapper = styled(MaxWidthWrapper)`
-  padding-top: 96px;
-  padding-bottom: 96px;
+  padding-top: 48px;
+  padding-bottom: 48px;
   color: var(--text2);
 `;
 
