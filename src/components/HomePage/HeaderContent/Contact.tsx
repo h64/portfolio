@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { GitHub, Linkedin, Mail } from "react-feather";
 import CliDisplay from "./CliDisplay";
 import { TappableBtn } from "../../CommonUI";
