@@ -31,6 +31,7 @@ const HeaderContent = () => {
 };
 
 const Wrapper = styled(MaxWidthWrapper)`
+  will-change: contents; /* Improves animation performance especially on mobile */
   min-height: calc(100% - 100px);
   min-width: min-content;
   color: var(--text2);

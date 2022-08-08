@@ -16,7 +16,6 @@ const About = () => {
           </p>
 
           <p>Some of my most proudest achievements include:</p>
-          <br />
           <ul>
             <li>
               <span>
@@ -25,12 +24,10 @@ const About = () => {
               my first computer at the age of four.
               <span>Percussive maintenance did not help!</span>
             </li>
-            <br />
 
             <li>
               Surviving and graduating from the <b>University of Washington.</b>
             </li>
-            <br />
 
             <li>
               Sharing the love of code to over a hundred students at{" "}

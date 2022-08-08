@@ -37,10 +37,10 @@ const RevealWrapper = styled.section<{ isVisible: boolean }>`
 
   @media (prefers-reduced-motion: no-preference) {
     animation: ${({ isVisible }) => (isVisible ? slideUp : null)};
-    animation-duration: 1000ms;
-    animation-delay: 300ms;
+    animation-duration: 600ms;
+    animation-delay: 200ms;
     animation-fill-mode: both;
-    animation-timing-function: cubic-bezier(0.39, 0.58, 0.57, 1);
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 `;
 

@@ -116,7 +116,7 @@ const slideDown = keyframes`
 
 const slideUp = keyframes`
   from {
-    opacity: 0.001;
+    opacity: 0;
     transform: translateY(100%);
   }
   to {
@@ -127,7 +127,7 @@ const slideUp = keyframes`
 
 const fadeIn = keyframes`
   from {
-    opacity: 0.001;
+    opacity: 0;
   }
   to {
     opacity: 1;
@@ -150,7 +150,7 @@ const slideUpAnimation = css`
     animation-duration: var(--slide-duration);
     animation-delay: var(--slide-delay);
     animation-fill-mode: both;
-    animation-timing-function: cubic-bezier(0.39, 0.58, 0.57, 1);
+    animation-timing-function: cubic-bezier(0.16, 0.35, 0.54, 0.9);
   }
 `;
 
