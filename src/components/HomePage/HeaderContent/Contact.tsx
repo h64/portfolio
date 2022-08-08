@@ -95,22 +95,19 @@ const Row = styled.div`
   }
 `;
 
-const pointAnimation = keyframes`
-  from {
-    transform: translateX(0px);
-  }
-  to {
-    transform: translateX(4px);
-  }
-`;
-
 const InnerRow = styled.div`
   display: flex;
-  gap: 8px;
+  gap: 10px;
 
   @media (prefers-reduced-motion: no-preference) {
+    & span[role="img"] {
+      transform: translateX(0px);
+      transition: transform 200ms cubic-bezier(0.47, 0, 0.745, 0.715);
+    }
+
     &:hover span[role="img"] {
-      animation: ${pointAnimation} 700ms infinite alternate ease;
+      transform: translateX(4px);
+      transition: transform 200ms cubic-bezier(0.86, 0, 0.07, 1);
     }
   }
 `;
