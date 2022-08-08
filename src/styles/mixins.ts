@@ -78,6 +78,7 @@ const underlineSlideInTransition = css`
 
   position: relative;
   overflow: hidden;
+  vertical-align: bottom;
 
   &::after {
     content: "";

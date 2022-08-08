@@ -15,6 +15,19 @@ export const TappableBtn = styled.button`
   ${({ theme }) => theme.mixins.tappableArea}
 `;
 
+export const TextLink = styled.a`
+  ${({ theme }) => theme.mixins.link}
+  ${({ theme }) => theme.mixins.underlineSlideInTransition}
+
+  font-weight: 700;
+  color: var(--brand);
+
+  &:hover,
+  &:active {
+    color: var(--text1);
+  }
+`;
+
 export const Header = styled.h2`
   color: var(--text1);
   text-transform: uppercase;

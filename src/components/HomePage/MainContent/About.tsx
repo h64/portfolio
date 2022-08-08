@@ -1,41 +1,52 @@
 import Image from "next/image";
 import styled from "styled-components";
-import { Header } from "../../CommonUI";
+import { Header, TextLink } from "../../CommonUI";
 import ScrollReveal from "../../ScrollReveal";
 
 const About = () => {
   return (
     <ScrollReveal>
       <Header id="about">About</Header>
-
       <Flex>
         <AboutText>
           <p>
             Hi! My name is Henry and since childhood I&apos;ve been thoroughly
-            fascinated by computers.
+            fascinated by computers. By the tender age of four, I had already
+            learned enough to perform{" "}
+            <Tooltip aria-describedby="laptop-joke">
+              percussive maintenance
+              <Asterisk>*</Asterisk>
+              <TooltipText role="tooltip" id="laptop-joke">
+                I totally destroyed that laptop
+              </TooltipText>
+            </Tooltip>{" "}
+            on my first laptop!
           </p>
-
-          <p>Some of my most proudest achievements include:</p>
-          <ul>
-            <li>
-              <span>
-                Blue screening<span>*</span>
-              </span>{" "}
-              my first computer at the age of four.
-              <span>Percussive maintenance did not help!</span>
-            </li>
-
-            <li>
-              Surviving and graduating from the <b>University of Washington.</b>
-            </li>
-
-            <li>
-              Sharing the love of code to over a hundred students at{" "}
-              <b>General Assembly</b>.
-            </li>
-          </ul>
+          <p>
+            {" "}
+            I went on to obtain my degree from the{" "}
+            <TextLink
+              href="https://www.washington.edu/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              University of Washington
+            </TextLink>
+            , and found a passion for web development and teaching at{" "}
+            <TextLink
+              href="https://generalassemb.ly/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              General Assembly.
+            </TextLink>
+          </p>
+          <p>
+            As a software engineer, I enjoy learning new techniques to build
+            accessible, delightful experiences on the front-end, that are
+            maintainable and scalable on the back-end.
+          </p>
         </AboutText>
-
         <ImgWrapper>
           <Image
             src={"/profile.jpg"}
@@ -48,23 +59,17 @@ const About = () => {
       </Flex>
       <div>
         <p>
-          As a software engineer, I enjoy learning new techniques to build
-          accessible, scalable, and maintainable products. My goal is to
-          leverage my experience as a teacher and bring <b>empathy</b> and a{" "}
-          <b>keen eye for detail</b> forward to every opportunity.
-        </p>
-        <p>
           Here&apos;s some of the technologies I&apos;ve been working with
           recently:
         </p>
-        <ul>
+        <List>
           <li>JavaScript (ES6+)</li>
           <li>React</li>
           <li>Node.js</li>
           <li>TypeScript</li>
           <li>Styled Components</li>
-          <li>Storybook</li>
-        </ul>
+          <li>Next.js</li>
+        </List>
       </div>
     </ScrollReveal>
   );
@@ -97,7 +102,7 @@ const ImgWrapper = styled.div`
     pointer-events: none;
     position: absolute;
     content: "";
-    border: 1px solid var(--brand);
+    border: 2px solid var(--brand);
     top: 16px;
     left: 16px;
     width: 100%;
@@ -121,9 +126,12 @@ const AboutText = styled.div`
   max-width: 60ch;
   margin-bottom: 16px;
   flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 
   @media ${({ theme }) => theme.mediaQueries.tabletAndUp} {
-    margin-bottom: 40px;
+    /* margin-bottom: 40px; */
   }
 `;
 
@@ -136,8 +144,70 @@ const Flex = styled.div`
 
   @media ${({ theme }) => theme.mediaQueries.tabletAndUp} {
     flex-direction: row;
-    /* gap: 48px; */
+    margin-bottom: 16px;
   }
+`;
+
+const List = styled.ul`
+  display: grid;
+  max-width: fit-content;
+  margin-right: auto;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 16px;
+  margin-top: 8px;
+
+  & > li {
+    margin-left: 40px;
+    list-style-type: circle;
+    padding-left: 16px;
+  }
+
+  & > li::marker {
+    content: "❖";
+  }
+`;
+
+const TooltipText = styled.span`
+  position: absolute;
+  bottom: 24px;
+  background-color: var(--surface3);
+  display: none;
+  z-index: 1;
+  white-space: normal;
+  text-align: center;
+
+  padding: 8px 16px;
+  border-radius: 4px;
+
+  ::after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -6px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: var(--surface3) transparent transparent transparent;
+  }
+`;
+
+const Tooltip = styled.span`
+  font-weight: 500;
+  color: var(--text1);
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+
+  &:hover ${TooltipText} {
+    --fade-duration: 300ms;
+    ${({ theme }) => theme.mixins.fadeInAnimation}
+    display: block;
+  }
+`;
+
+const Asterisk = styled.span`
+  font-weight: 800;
+  color: var(--brand);
 `;
 
 export default About;

@@ -6,7 +6,7 @@ const HeaderContent = () => {
   return (
     <Wrapper as="header">
       <GreetingWrapper>
-        <Greeting id="top">
+        <Greeting>
           Hello World!{" "}
           <WaveWrapper>
             <WavingHand role="img" aria-label="Waving hand">
