@@ -57,8 +57,9 @@ const Experience = () => {
             <List>
               <li>
                 Managed company I.T. resources as the primary point of contact
-                for resolving technical issues and maintaining the companies
-                network and hardware across three physical locations.
+                for resolving technical issues and maintaining the
+                company&apos;s network and hardware across three physical
+                locations.
               </li>
               <li>
                 Performed a wide variety of duties including: configuring Cisco
