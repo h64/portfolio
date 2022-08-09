@@ -1,6 +1,7 @@
-import { ReactNode, useRef } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import useIntersectionObserver from "../../hooks/useIntersectionObserver";
+import useIsJsEnabled from "../../hooks/useIsJsEnabled";
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -14,8 +15,10 @@ function ScrollReveal({ children }: ScrollRevealProps) {
   });
   const isVisible = !!entry?.isIntersecting;
 
+  let isJsEnabled = useIsJsEnabled();
+
   return (
-    <RevealWrapper ref={ref} isVisible={isVisible}>
+    <RevealWrapper ref={ref} isVisible={isVisible} isJsEnabled={isJsEnabled}>
       {children}
     </RevealWrapper>
   );
@@ -32,11 +35,17 @@ const slideUp = keyframes`
   }
 `;
 
-const RevealWrapper = styled.section<{ isVisible: boolean }>`
-  opacity: 0; /* Prevents flash of text before the animation triggers */
+const RevealWrapper = styled.section<{
+  isVisible: boolean;
+  isJsEnabled: boolean;
+}>`
+  /* Keep text visible on JS disabled experience */
+  /* But prevent flash of text if JS enabled */
+  opacity: ${({ isJsEnabled }) => (isJsEnabled ? 0 : 1)};
 
   @media (prefers-reduced-motion: no-preference) {
-    animation: ${({ isVisible }) => (isVisible ? slideUp : null)};
+    animation: ${({ isVisible, isJsEnabled }) =>
+      !isJsEnabled || isVisible ? slideUp : null};
     animation-duration: 600ms;
     animation-delay: 200ms;
     animation-fill-mode: both;

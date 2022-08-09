@@ -6,14 +6,11 @@ import Logo from "../Logo";
 import MobileNav from "../MobileNav";
 import { BtnLink, TappableBtn } from "../CommonUI";
 import { Link } from "../CommonUI";
+import useIsJsEnabled from "../../hooks/useIsJsEnabled";
 
 const Navbar = () => {
   let [isOpen, setIsOpen] = useState(false);
-  let [isJsEnhanced, setIsJsEnhanced] = useState(false);
-
-  useEffect(() => {
-    setIsJsEnhanced(true);
-  }, []);
+  let isJsEnabled = useIsJsEnabled();
 
   return (
     <Wrapper as="nav">
@@ -28,7 +25,7 @@ const Navbar = () => {
       </DesktopActions>
 
       <MobileActions>
-        {isJsEnhanced && (
+        {isJsEnabled && (
           <TappableBtn
             onClick={() => setIsOpen(true)}
             aria-label="Open Mobile Navigation"
