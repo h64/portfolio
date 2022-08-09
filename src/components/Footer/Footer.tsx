@@ -84,7 +84,6 @@ const Wrapper = styled.div`
 const Social = styled.div`
   display: flex;
   flex-wrap: wrap;
-  color: var(--brand);
   gap: 16px;
 
   display: none;
@@ -121,11 +120,11 @@ const Subtext = styled.p`
 `;
 
 const SocialLink = styled.a`
-  color: var(--brand);
+  color: var(--text1);
   text-decoration: none;
 
   &:hover {
-    color: var(--text1);
+    color: var(--brand);
   }
 `;
 
