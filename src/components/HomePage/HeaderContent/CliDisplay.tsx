@@ -50,7 +50,7 @@ const Cursor = styled.span`
     animation: ${cursorBlink} 1.5s step-end infinite;
   }
 
-  @media (max-width: 450px) {
+  @media ${({ theme }) => theme.mediaQueries.verySmall} {
     display: none;
   }
 `;
