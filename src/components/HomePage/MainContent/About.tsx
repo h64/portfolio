@@ -2,6 +2,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import { Header, TextLink } from "../../CommonUI";
 import ScrollReveal from "../../ScrollReveal";
+import VisuallyHidden from "../../VisuallyHidden";
 
 const About = () => {
   return (
@@ -31,6 +32,7 @@ const About = () => {
               target="_blank"
             >
               University of Washington
+              <VisuallyHidden>(Opens in new tab)</VisuallyHidden>
             </TextLink>
             , and found a passion for web development and teaching at{" "}
             <TextLink
@@ -39,6 +41,7 @@ const About = () => {
               target="_blank"
             >
               General Assembly.
+              <VisuallyHidden>(Opens in new tab)</VisuallyHidden>
             </TextLink>
           </p>
           <p>
@@ -129,10 +132,6 @@ const AboutText = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
-
-  @media ${({ theme }) => theme.mediaQueries.tabletAndUp} {
-    /* margin-bottom: 40px; */
-  }
 `;
 
 const Flex = styled.div`
@@ -154,7 +153,8 @@ const List = styled.ul`
   margin-right: auto;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 16px;
-  margin-top: 8px;
+  grid-row-gap: 8px;
+  margin-top: 16px;
 
   & > li {
     margin-left: 40px;
@@ -165,6 +165,10 @@ const List = styled.ul`
   & > li::marker {
     content: "❖";
   }
+
+  @media (max-width: 350px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const TooltipText = styled.span`
@@ -172,10 +176,8 @@ const TooltipText = styled.span`
   bottom: 24px;
   background-color: var(--surface3);
   display: none;
-  z-index: 1;
   white-space: normal;
   text-align: center;
-
   padding: 8px 16px;
   border-radius: 4px;
 

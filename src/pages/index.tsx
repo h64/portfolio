@@ -5,8 +5,10 @@ import MainContent from "../components/HomePage/MainContent";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SkipToContent from "../components/SkipToContent";
+import PrintEasterEgg from "../utils/PrintEasterEgg";
 
 const Home: NextPage = () => {
+  PrintEasterEgg();
   return (
     <>
       <Head>
