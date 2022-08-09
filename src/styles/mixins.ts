@@ -126,6 +126,17 @@ const slideUp = keyframes`
   }
 `;
 
+const riseFromMidline = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(0%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-100%);
+  }
+`;
+
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -155,6 +166,16 @@ const slideUpAnimation = css`
   }
 `;
 
+const riseFromMidlineAnimation = css`
+  @media (prefers-reduced-motion: no-preference) {
+    animation: ${riseFromMidline};
+    animation-duration: var(--slide-duration);
+    animation-delay: var(--slide-delay);
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.16, 0.35, 0.54, 0.9);
+  }
+`;
+
 const fadeInAnimation = css`
   animation: ${fadeIn};
   animation-duration: var(--fade-duration);
@@ -171,6 +192,7 @@ const mixins = {
   slideDownAnimation,
   fadeInAnimation,
   slideUpAnimation,
+  riseFromMidlineAnimation,
 };
 
 export default mixins;

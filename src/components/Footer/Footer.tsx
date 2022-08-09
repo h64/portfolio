@@ -6,11 +6,12 @@ const Footer = () => {
   return (
     <Wrapper as="footer">
       <CreatorMsg>
-        <p>Created by Henry Hong</p>
-        <Subtext>Thanks for reading!</Subtext>
+        <p>
+          Created by <Name>Henry Hong</Name>
+        </p>
+        <p>Thanks for reading!</p>
       </CreatorMsg>
       <Social>
-        <SocialLink href="mailto:henry@hong.dev">Email</SocialLink>
         <SocialLink
           href="https://www.linkedin.com/in/henry-s-hong/"
           target="_blank"
@@ -27,15 +28,9 @@ const Footer = () => {
         >
           Github
         </SocialLink>
+        <SocialLink href="mailto:henry@hong.dev">Email</SocialLink>
       </Social>
       <SocialIcons>
-        <TappableBtn
-          as={"a"}
-          href="mailto:henry@hong.dev"
-          aria-label="Email henry@hong.dev"
-        >
-          <Mail height={24} width={24} />
-        </TappableBtn>
         <TappableBtn
           as={"a"}
           href="https://www.linkedin.com/in/henry-s-hong/"
@@ -54,6 +49,13 @@ const Footer = () => {
         >
           <GitHub height={24} width={24} />
         </TappableBtn>
+        <TappableBtn
+          as={"a"}
+          href="mailto:henry@hong.dev"
+          aria-label="Email henry@hong.dev"
+        >
+          <Mail height={24} width={24} />
+        </TappableBtn>
       </SocialIcons>
     </Wrapper>
   );
@@ -71,7 +73,7 @@ const Wrapper = styled.div`
   display: flex;
   gap: 16px;
   justify-content: space-between;
-  background-color: var(--surface2);
+  font-size: 14px;
   align-items: center;
 
   @media ${({ theme }) => theme.mediaQueries.verySmall} {
@@ -114,17 +116,33 @@ const CreatorMsg = styled.div`
   flex: 1;
 `;
 
-const Subtext = styled.p`
-  color: var(--text1);
-  font-size: calc(14 / 16 * 1rem);
-`;
-
 const SocialLink = styled.a`
-  color: var(--text1);
+  color: var(--brand);
   text-decoration: none;
 
   &:hover {
-    color: var(--brand);
+    color: var(--text1);
+  }
+`;
+
+const Name = styled.span`
+  color: var(--brand);
+  display: inline-block;
+  position: relative;
+
+  ::after {
+    content: "👨🏻‍💻";
+    position: absolute;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 200ms, opacity 200ms;
+  }
+
+  &:hover::after {
+    transform: translateX(20%);
+    opacity: 1;
+
+    transition: transform 200ms, opacity 200ms;
   }
 `;
 
