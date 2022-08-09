@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 const msg = `
-        Looking for software engineer hires? 
+        Looking for a software engineer? 
         Get in touch! 
         
         henry@hong.dev
